@@ -15,42 +15,49 @@ document.querySelectorAll("#nav a").forEach(link => {
 
 document.getElementById("year").textContent = new Date().getFullYear();
 
-document.getElementById("contactForm").addEventListener("submit", event => {
+// EmailJS configuration
+emailjs.init({
+  publicKey: "jBURB2O5ct9eytQ5c"
+});
+
+const contactForm = document.getElementById("contactForm");
+
+contactForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const name = document.getElementById("name").value.trim();
   const email = document.getElementById("email").value.trim();
   const message = document.getElementById("message").value.trim();
   const status = document.getElementById("formStatus");
+  const submitButton = contactForm.querySelector('button[type="submit"]');
 
   if (!name || !email || !message) {
     status.textContent = "Please complete all fields.";
     return;
   }
 
-  const recipient = "rrhacker0897@gmail.com";
+  status.textContent = "Sending your message...";
+  submitButton.disabled = true;
 
-  const subject = encodeURIComponent(
-    "New Project Enquiry - Nova Business"
-  );
+  try {
+    await emailjs.send(
+      "nova_business_gmail",
+      "template_lktl821",
+      {
+        name: name,
+        email: email,
+        title: "New Project Enquiry - Nova Business",
+        message: message
+      }
+    );
 
-  const body = encodeURIComponent(
-    `Hello Nova Business,
+    status.textContent = "Thank you! Your message has been sent successfully.";
+    contactForm.reset();
 
-New client enquiry received.
-
-Client Name: ${name}
-Client Email: ${email}
-
-Project Details:
-${message}
-
-Regards,
-${name}`
-  );
-
-  status.textContent = "Opening your email application...";
-
-  window.location.href =
-    `mailto:${recipient}?subject=${subject}&body=${body}`;
+  } catch (error) {
+    console.error("EmailJS Error:", error);
+    status.textContent = "Message could not be sent. Please try again later.";
+  } finally {
+    submitButton.disabled = false;
+  }
 });
