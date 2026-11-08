@@ -28,11 +28,29 @@ document.getElementById("contactForm").addEventListener("submit", event => {
     return;
   }
 
-  const subject = encodeURIComponent("Nova Business project enquiry");
+  const recipient = "rrhacker0897@gmail.com";
+
+  const subject = encodeURIComponent(
+    "New Project Enquiry - Nova Business"
+  );
+
   const body = encodeURIComponent(
-    `Name: ${name}\nEmail: ${email}\n\nProject details:\n${message}`
+    `Hello Nova Business,
+
+New client enquiry received.
+
+Client Name: ${name}
+Client Email: ${email}
+
+Project Details:
+${message}
+
+Regards,
+${name}`
   );
 
   status.textContent = "Opening your email application...";
-  window.location.href = `mailto:hello@example.com?subject=${subject}&body=${body}`;
+
+  window.location.href =
+    `mailto:${recipient}?subject=${subject}&body=${body}`;
 });
