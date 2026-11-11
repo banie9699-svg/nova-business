@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mono Goods — Everyday objects, thoughtfully selected.">
+  <title>MONO GOODS — Objects for Everyday Living</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <a class="logo" href="#">MONO<span>.</span></a>
+  <nav>
+    <a href="#shop">Shop</a>
+    <a href="#categories">Categories</a>
+    <a href="#about">Our Story</a>
+  </nav>
+  <button class="cart-button" onclick="toggleCart()">Bag <span id="cart-count">0</span></button>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-content">
+      <span class="eyebrow">THE EVERYDAY COLLECTION — 2026</span>
+      <h1>Less, but<br><em>better.</em></h1>
+      <p>Thoughtfully selected everyday objects. Designed to bring simplicity, purpose and beauty into your space.</p>
+      <a class="primary-btn" href="#shop">Explore collection ↗</a>
+    </div>
+    <div class="hero-image">
+      <span>OBJECTS FOR SLOW LIVING</span>
+    </div>
+  </section>
+
+  <section class="categories" id="categories">
+    <div class="section-heading">
+      <div><span class="eyebrow">EXPLORE BY CATEGORY</span><h2>Find your everyday.</h2></div>
+    </div>
+    <div class="category-grid">
+      <a href="#shop" class="category cat-one"><span>01 / HOME</span><strong>Home Objects ↗</strong></a>
+      <a href="#shop" class="category cat-two"><span>02 / LIFESTYLE</span><strong>Daily Essentials ↗</strong></a>
+      <a href="#shop" class="category cat-three"><span>03 / ACCESSORIES</span><strong>Accessories ↗</strong></a>
+    </div>
+  </section>
+
+  <section class="shop" id="shop">
+    <div class="section-heading">
+      <div><span class="eyebrow">CURATED FOR YOU</span><h2>Everyday favourites.</h2></div>
+      <span class="product-count">01 — 04 / COLLECTION</span>
+    </div>
+
+    <div class="product-grid">
+      <article class="product">
+        <div class="product-image product-one"><span>BESTSELLER</span></div>
+        <div class="product-info"><div><h3>Forma Ceramic Vase</h3><p>Home Objects</p></div><strong>₹1,299</strong></div>
+        <button onclick="addToCart('Forma Ceramic Vase',1299)">Add to bag +</button>
+      </article>
+
+      <article class="product">
+        <div class="product-image product-two"><span>NEW ARRIVAL</span></div>
+        <div class="product-info"><div><h3>Daily Carry Tote</h3><p>Accessories</p></div><strong>₹899</strong></div>
+        <button onclick="addToCart('Daily Carry Tote',899)">Add to bag +</button>
+      </article>
+
+      <article class="product">
+        <div class="product-image product-three"><span>EDITOR'S PICK</span></div>
+        <div class="product-info"><div><h3>Minimal Table Lamp</h3><p>Home Objects</p></div><strong>₹2,499</strong></div>
+        <button onclick="addToCart('Minimal Table Lamp',2499)">Add to bag +</button>
+      </article>
+
+      <article class="product">
+        <div class="product-image product-four"><span>LIMITED EDITION</span></div>
+        <div class="product-info"><div><h3>Everyday Bottle</h3><p>Daily Essentials</p></div><strong>₹699</strong></div>
+        <button onclick="addToCart('Everyday Bottle',699)">Add to bag +</button>
+      </article>
+    </div>
+    <p class="demo-note">Product names, prices and visuals are illustrative portfolio demo content.</p>
+  </section>
+
+  <section class="story" id="about">
+    <span class="eyebrow">THE MONO PHILOSOPHY</span>
+    <h2>Buy less.<br><em>Choose well.</em></h2>
+    <p>We believe the objects around us should earn their place. Simple forms, thoughtful details and everyday usefulness.</p>
+  </section>
+
+  <section class="newsletter">
+    <span class="eyebrow">STAY IN THE LOOP</span>
+    <h2>Good things, occasionally.</h2>
+    <p>Discover new collections and thoughtful finds.</p>
+    <a href="#shop" class="primary-btn">Explore the collection ↗</a>
+  </section>
+</main>
+
+<footer>
+  <a class="logo" href="#">MONO<span>.</span></a>
+  <p>Thoughtful objects for everyday living.</p>
+  <small>© 2026 MONO GOODS · Concept website by Nova Business</small>
+</footer>
+
+<div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+<aside class="cart-panel" id="cart-panel">
+  <div class="cart-heading"><h2>Your Bag</h2><button onclick="toggleCart()">✕</button></div>
+  <div id="cart-items"><p class="empty-cart">Your bag is currently empty.</p></div>
+  <div class="cart-bottom"><strong>Total: <span id="cart-total">₹0</span></strong><p>Demo cart only. No real payments are processed.</p></div>
+</aside>
+
+<script src="script.js"></script>
+</body>
+</html>
