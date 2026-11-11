@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://banie9699-svg.github.io/nova-business/sitemap.xml
