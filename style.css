@@ -331,3 +331,203 @@ footer p,footer>a:last-child { font-size:12px; color:var(--muted); }
   background: #168AC0;
   transform: translateY(-3px);
 }
+
+/* ===== NOVA BUSINESS DESIGN FIX ===== */
+
+/* About Us - Better Typography */
+#about h1,
+#about h2 {
+  font-size: clamp(34px, 5vw, 48px);
+  line-height: 1.12;
+  letter-spacing: -1.8px;
+  font-weight: 750;
+  margin-bottom: 20px;
+  text-wrap: balance;
+}
+
+#about p {
+  max-width: 580px;
+  font-size: 15px;
+  line-height: 1.85;
+  color: #788292;
+}
+
+/* Contact Form - Matching Dropdowns */
+select {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 46px;
+  padding: 12px 42px 12px 14px;
+  margin: 8px 0;
+  color: #ffffff;
+  background-color: #203052;
+  border: 1px solid #30436a;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23ffffff' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+}
+
+select:focus {
+  border-color: #365df5;
+  box-shadow: 0 0 0 3px rgba(54, 93, 245, 0.18);
+}
+
+select option {
+  color: #ffffff;
+  background-color: #203052;
+}
+
+@media (max-width: 600px) {
+  #about h1,
+  #about h2 {
+    font-size: 36px;
+    letter-spacing: -1.2px;
+  }
+}
+
+
+/* ===== FINAL NOVA ABOUT + DROPDOWN POLISH ===== */
+
+/* About section layout */
+.about {
+  align-items: center;
+  gap: 55px;
+}
+
+.about .section-label {
+  align-self: start;
+  padding-top: 12px;
+  color: #426cf8;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.about-content {
+  max-width: 700px;
+}
+
+.about-content h2 {
+  max-width: 650px;
+  font-size: clamp(38px, 5.5vw, 58px);
+  line-height: 1.08;
+  letter-spacing: -2.5px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.about-content h2 span {
+  display: inline-block;
+  color: #426cf8;
+}
+
+.about-content p {
+  max-width: 540px;
+  margin-top: 22px;
+  font-size: 16px;
+  line-height: 1.9;
+  color: #68758b;
+}
+
+/* Service and Budget dropdowns */
+#contactForm select {
+  width: 100%;
+  min-height: 52px;
+  box-sizing: border-box;
+  padding: 0 44px 0 16px;
+  margin: 7px 0;
+  border: 1px solid #dce4f2;
+  border-radius: 10px;
+  background-color: #f5f7fc;
+  color: #17264a;
+  font: inherit;
+  font-size: 14px;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23426cf8' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+}
+
+#contactForm select:focus {
+  outline: none;
+  border-color: #426cf8;
+  box-shadow: 0 0 0 3px #426cf820;
+}
+
+#contactForm select option {
+  background: #ffffff;
+  color: #17264a;
+}
+
+@media (max-width: 800px) {
+  .about {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .about-content h2 {
+    font-size: 42px;
+    letter-spacing: -1.8px;
+  }
+}
+
+
+/* NOVA ABOUT SECTION - COMPLETE LAYOUT REDESIGN */
+section.about#about {
+  display: block !important;
+  padding: 110px 8% !important;
+  text-align: center !important;
+  background: #f7f9ff !important;
+}
+
+section.about#about .section-label {
+  display: block !important;
+  margin: 0 0 28px !important;
+  padding: 0 !important;
+  text-align: center !important;
+}
+
+section.about#about .about-content {
+  max-width: 760px !important;
+  margin: 0 auto !important;
+}
+
+section.about#about .about-content h2 {
+  font-size: clamp(42px, 6vw, 62px) !important;
+  line-height: 1.12 !important;
+  letter-spacing: -2.5px !important;
+  margin: 0 !important;
+}
+
+section.about#about .about-content h2 span {
+  display: block !important;
+  margin-top: 5px !important;
+}
+
+section.about#about .about-content p {
+  max-width: 620px !important;
+  margin: 25px auto 0 !important;
+  font-size: 16px !important;
+  line-height: 1.9 !important;
+  color: #718096 !important;
+}
+
+@media(max-width:600px) {
+  section.about#about {
+    padding: 75px 6% !important;
+  }
+
+  section.about#about .about-content h2 {
+    font-size: 39px !important;
+    letter-spacing: -1.5px !important;
+  }
+}

@@ -15,7 +15,6 @@ document.querySelectorAll("#nav a").forEach(link => {
 
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// EmailJS configuration
 emailjs.init({
   publicKey: "jBURB2O5ct9eytQ5c"
 });
@@ -27,11 +26,13 @@ contactForm.addEventListener("submit", async (event) => {
 
   const name = document.getElementById("name").value.trim();
   const email = document.getElementById("email").value.trim();
+  const service = document.getElementById("service").value;
+  const budget = document.getElementById("budget").value;
   const message = document.getElementById("message").value.trim();
   const status = document.getElementById("formStatus");
   const submitButton = contactForm.querySelector('button[type="submit"]');
 
-  if (!name || !email || !message) {
+  if (!name || !email || !service || !budget || !message) {
     status.textContent = "Please complete all fields.";
     return;
   }
@@ -44,10 +45,12 @@ contactForm.addEventListener("submit", async (event) => {
       "nova_business_gmail",
       "template_lktl821",
       {
-        name: name,
-        email: email,
+        name,
+        email,
         title: "New Project Enquiry - Nova Business",
-        message: message
+        service,
+        budget,
+        message
       }
     );
 
@@ -56,7 +59,7 @@ contactForm.addEventListener("submit", async (event) => {
 
   } catch (error) {
     console.error("EmailJS Error:", error);
-    status.textContent = "Message could not be sent. Please try again later.";
+    status.textContent = "Message could not be sent. Please try again.";
   } finally {
     submitButton.disabled = false;
   }
