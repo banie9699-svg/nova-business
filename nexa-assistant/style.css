@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#09090f;color:#eeeef6;font-family:'DM Sans',sans-serif}
+button,textarea{font:inherit}
+button{cursor:pointer}
+.app{display:flex;min-height:100vh}
+.sidebar{width:260px;background:#0d0d15;border-right:1px solid #20202b;padding:25px 17px;display:flex;flex-direction:column;flex-shrink:0}
+.brand{font:700 23px 'Space Grotesk';letter-spacing:2px;padding:0 8px 35px}
+.brand-icon{color:#a78bfa}
+.brand small{font-size:11px;color:#a78bfa;letter-spacing:1px}
+.new-chat{background:#a78bfa;color:#151020;border:0;border-radius:9px;padding:13px;font-weight:700;text-align:left;margin-bottom:35px}
+.side-label{font-size:10px;color:#686879;letter-spacing:1.5px;margin:0 9px 13px}
+.side-link{padding:12px 10px;color:#9292a4;font-size:13px;border-radius:8px;display:flex;gap:12px;margin-bottom:4px}
+.side-link.active{background:#1b1927;color:#c4b5fd}
+.history-label{margin-top:35px}
+.history-item{font-size:12px;color:#9292a4;padding:10px;border-radius:7px}
+.profile{margin-top:auto;border-top:1px solid #242431;padding:20px 3px 0;display:flex;align-items:center;gap:10px}
+.avatar{width:34px;height:34px;border-radius:10px;background:#27213b;color:#c4b5fd;display:grid;place-items:center}
+.profile strong{font-size:12px;display:block}
+.profile small{font-size:10px;color:#777789}
+.profile>span{margin-left:auto;color:#777}
+.main{flex:1;min-width:0;display:flex;flex-direction:column;min-height:100vh}
+.topbar{height:70px;border-bottom:1px solid #20202b;display:flex;align-items:center;justify-content:space-between;padding:0 35px}
+.model{font-size:13px;font-weight:600}
+.online-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#64d6a1;margin-left:7px}
+.share{background:#171722;border:1px solid #292938;color:#ccc;border-radius:8px;padding:9px 14px;font-size:11px}
+.menu-btn{display:none;background:none;border:0;color:white;font-size:20px}
+.chat-area{width:100%;max-width:900px;margin:auto;flex:1;padding:55px 35px 30px}
+.welcome{text-align:center;padding-top:10px}
+.orb{width:65px;height:65px;border-radius:22px;margin:0 auto 25px;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#8d72e7,#34245e 65%,#171326);box-shadow:0 0 55px #8061e533;font-size:28px;color:#fff}
+.eyebrow{font-size:10px;letter-spacing:3px;color:#a78bfa;margin-bottom:17px}
+h1{font:600 clamp(35px,5vw,54px)/1.13 'Space Grotesk';letter-spacing:-2px}
+h1 span{color:#a78bfa}
+.subtitle{font-size:13px;color:#89899b;margin:17px 0 38px}
+.suggestions{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:570px;margin:auto;text-align:left}
+.suggestions button{border:1px solid #272735;background:#11111b;border-radius:12px;padding:17px;color:#eee;display:grid;grid-template-columns:25px 1fr;gap:5px 10px}
+.suggestions button>span{grid-row:span 2;color:#b5a0ff;font-size:18px}
+.suggestions b{font-size:12px;font-weight:600}
+.suggestions small{font-size:10px;color:#858596}
+.suggestions button:hover{border-color:#8d72e7;background:#171523}
+.composer-wrap{width:100%;max-width:790px;margin:0 auto;padding:15px 25px 20px}
+.composer{background:#15151f;border:1px solid #343444;border-radius:15px;padding:14px 15px 10px}
+textarea{width:100%;resize:none;outline:0;background:none;border:0;color:white;min-height:45px;font-size:13px}
+textarea::placeholder{color:#777789}
+.composer-bottom{display:flex;justify-content:space-between;align-items:center}
+.demo-tag{font-size:9px;color:#a78bfa;letter-spacing:1px}
+.send-btn{width:34px;height:34px;border:0;border-radius:10px;background:#a78bfa;color:#171020;font-size:21px;font-weight:bold}
+.disclaimer{text-align:center;color:#666678;font-size:9px;margin-top:12px}
+.messages{display:flex;flex-direction:column;gap:20px}
+.message{max-width:82%;padding:14px 17px;border-radius:13px;font-size:13px;line-height:1.7;white-space:pre-wrap}
+.message.user{align-self:flex-end;background:#30274b;color:#eee}
+.message.bot{align-self:flex-start;background:#15151f;border:1px solid #282837;color:#ddd}
+.toast{position:fixed;bottom:25px;left:50%;transform:translateX(-50%);background:#29243a;color:white;padding:11px 18px;border-radius:9px;font-size:12px;opacity:0;pointer-events:none;transition:.2s}
+.toast.show{opacity:1}
+@media(max-width:700px){
+.sidebar{position:fixed;z-index:5;left:-270px;top:0;bottom:0;transition:.25s;box-shadow:10px 0 40px #0008}
+.sidebar.open{left:0}
+.menu-btn{display:block}
+.topbar{padding:0 17px;height:60px}
+.chat-area{padding:45px 17px 20px}
+h1{font-size:39px}
+.subtitle{font-size:12px;line-height:1.6}
+.suggestions{gap:9px}
+.suggestions button{padding:13px 10px;grid-template-columns:20px 1fr}
+.suggestions b{font-size:11px}
+.suggestions small{font-size:9px}
+.composer-wrap{padding:12px}
+}
