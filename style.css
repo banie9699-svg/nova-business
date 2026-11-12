@@ -1,7 +1,7 @@
 :root {
   --blue: #315cf5;
   --dark: #10182c;
-  --muted: #718096;
+  --muted: #596579;
   --light: #f5f7fc;
 }
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -434,7 +434,7 @@ select option {
   margin-top: 22px;
   font-size: 16px;
   line-height: 1.9;
-  color: #68758b;
+  color: #596579;
 }
 
 /* Service and Budget dropdowns */
@@ -518,7 +518,7 @@ section.about#about .about-content p {
   margin: 25px auto 0 !important;
   font-size: 16px !important;
   line-height: 1.9 !important;
-  color: #718096 !important;
+  color: #596579 !important;
 }
 
 @media(max-width:600px) {
@@ -548,4 +548,18 @@ section.about#about .about-content p {
 .work-card-link:focus-visible {
   outline: 3px solid #365df5;
   outline-offset: 4px;
+}
+
+
+/* Accessible labels: available to screen readers */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
