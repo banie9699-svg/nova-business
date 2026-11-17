@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>Login | Nova Business</title>
+  <link rel="stylesheet" href="../auth.css">
+</head>
+<body>
+  <main class="auth-layout">
+    <section class="auth-visual">
+      <a class="brand" href="../../index.html">
+        <span class="brand-icon">N</span>
+        <span>NOVA <small>BUSINESS</small></span>
+      </a>
+
+      <div class="visual-content">
+        <span class="visual-tag">YOUR BUSINESS. ONE WORKSPACE.</span>
+        <h1>Everything your business needs, all in one place.</h1>
+        <p>Manage customers, create websites, automate tasks and grow your business with Nova Business.</p>
+
+        <div class="visual-features">
+          <div><span>✦</span> AI-powered business tools</div>
+          <div><span>✓</span> Organized business workspace</div>
+          <div><span>↗</span> Tools built for business growth</div>
+        </div>
+      </div>
+
+      <div class="visual-footer">© <span class="year"></span> Nova Business</div>
+    </section>
+
+    <section class="auth-main">
+      <div class="auth-box">
+        <a class="mobile-brand brand" href="../../index.html">
+          <span class="brand-icon">N</span>
+          <span>NOVA <small>BUSINESS</small></span>
+        </a>
+
+        <div class="auth-heading">
+          <span class="eyebrow">WELCOME BACK</span>
+          <h2>Sign in to your account</h2>
+          <p>Enter your details to access your business workspace.</p>
+        </div>
+
+        <form id="loginForm">
+          <label for="email">Email address</label>
+          <input type="email" id="email" placeholder="you@example.com" autocomplete="email" required>
+
+          <div class="password-heading">
+            <label for="password">Password</label>
+            <a href="../forgot-password/">Forgot password?</a>
+          </div>
+
+          <div class="password-wrap">
+            <input type="password" id="password" placeholder="Enter your password" autocomplete="current-password" required minlength="6">
+            <button type="button" id="togglePassword" aria-label="Show password">Show</button>
+          </div>
+
+          <label class="remember">
+            <input type="checkbox" id="remember">
+            <span>Remember me on this device</span>
+          </label>
+
+          <button class="submit-btn" type="submit">Sign in <span>→</span></button>
+          <p class="form-message" id="formMessage" role="status"></p>
+        </form>
+
+        <div class="auth-divider"><span>NEW TO NOVA BUSINESS?</span></div>
+        <a class="outline-btn" href="../signup/">Create an account</a>
+
+        <p class="terms">By continuing, you agree to our Terms of Service and Privacy Policy.</p>
+        <a class="back-home" href="../../index.html">← Back to website</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="../auth.js"></script>
+</body>
+</html>

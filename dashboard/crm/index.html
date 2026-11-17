@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CRM & Leads | Nova Business</title>
+  <link rel="stylesheet" href="../../assets/css/dashboard.css">
+  <link rel="stylesheet" href="../../assets/css/crm.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <a href="../../index.html" class="brand">
+      <span class="brand-icon">N</span>
+      <span>NOVA <small>BUSINESS</small></span>
+    </a>
+    <div class="workspace">
+      <div class="workspace-icon">NB</div>
+      <div><strong>My Business</strong><small>Free workspace</small></div>
+      <span class="dots">•••</span>
+    </div>
+    <nav>
+      <p class="nav-label">WORKSPACE</p>
+      <a class="nav-link" href="../index.html">▦ <span>Overview</span></a>
+      <a class="nav-link" href="../ai/">✦ <span>AI Assistant</span></a>
+      <a class="nav-link" href="../website-builder/">▣ <span>Website Builder</span></a>
+      <a class="nav-link active" href="./">♧ <span>CRM & Leads</span></a>
+      <a class="nav-link" href="../customers/">♙ <span>Customers</span></a>
+      <a class="nav-link" href="../invoices/">▤ <span>Invoices</span></a>
+      <a class="nav-link" href="../inventory/">▥ <span>Inventory</span></a>
+      <p class="nav-label">GROW YOUR BUSINESS</p>
+      <a class="nav-link" href="../marketing/">✧ <span>AI Marketing</span></a>
+      <a class="nav-link" href="../analytics/">▥ <span>Analytics</span></a>
+      <p class="nav-label">ACCOUNT</p>
+      <a class="nav-link" href="../settings/">⚙ <span>Settings</span></a>
+      <a class="nav-link" href="../subscription/">◇ <span>Subscription</span></a>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="help-card">
+        <strong>Need help?</strong>
+        <p>We're here to help your business grow.</p>
+        <a href="https://t.me/Developeritik" target="_blank" rel="noopener">Contact Support →</a>
+      </div>
+      <div class="user-profile">
+        <div class="avatar">U</div>
+        <div><strong>Demo User</strong><small>Free Plan</small></div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+      <div class="breadcrumb">Workspace <span>/</span> CRM & Leads</div>
+      <div class="top-actions"><div class="top-avatar">U</div></div>
+    </header>
+
+    <div class="content">
+      <section class="crm-welcome">
+        <div>
+          <p class="eyebrow">CUSTOMER RELATIONSHIP MANAGEMENT</p>
+          <h1>CRM & Leads</h1>
+          <p>Track potential customers and manage your sales pipeline.</p>
+        </div>
+        <button class="primary-btn" id="addLeadBtn">＋ Add lead</button>
+      </section>
+
+      <section class="crm-stats">
+        <article class="crm-stat"><span>Total leads</span><strong id="totalLeads">4</strong><small>All pipeline records</small></article>
+        <article class="crm-stat"><span>Qualified</span><strong id="qualifiedLeads">1</strong><small>Ready for next steps</small></article>
+        <article class="crm-stat"><span>Converted</span><strong id="convertedLeads">1</strong><small>Successfully converted</small></article>
+        <article class="crm-stat"><span>Follow-ups</span><strong id="followupLeads">2</strong><small>Upcoming or due</small></article>
+      </section>
+
+      <section class="pipeline-section">
+        <div class="section-heading">
+          <div><h2>Lead pipeline</h2><p>See where your leads are in the journey</p></div>
+          <span class="demo-tag">DEMO DATA</span>
+        </div>
+        <div class="pipeline" id="pipeline"></div>
+      </section>
+
+      <section class="lead-panel">
+        <div class="lead-panel-heading">
+          <div><h2>All leads</h2><p>Manage your sales opportunities</p></div>
+        </div>
+        <div class="lead-controls">
+          <div class="search-box">
+            <span>⌕</span>
+            <input type="search" id="leadSearch" placeholder="Search name, email or company...">
+          </div>
+          <select id="leadFilter" aria-label="Filter leads">
+            <option value="all">All stages</option>
+            <option value="New">New</option>
+            <option value="Contacted">Contacted</option>
+            <option value="Qualified">Qualified</option>
+            <option value="Converted">Converted</option>
+          </select>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>LEAD</th><th>COMPANY</th><th>EMAIL</th>
+                <th>FOLLOW-UP</th><th>STAGE</th><th>ACTIONS</th>
+              </tr>
+            </thead>
+            <tbody id="leadRows"></tbody>
+          </table>
+        </div>
+        <div class="empty-state" id="emptyState" hidden>No leads found. Try another search or add a lead.</div>
+        <div class="table-footer"><span id="resultCount">Showing 4 leads</span><span>Sample workspace</span></div>
+      </section>
+
+      <footer>© <span id="year"></span> Nova Business. All rights reserved.</footer>
+    </div>
+  </main>
+</div>
+
+<div class="overlay" id="overlay"></div>
+
+<div class="modal-backdrop" id="leadModal" hidden>
+  <section class="lead-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-heading">
+      <div><h2 id="modalTitle">Add new lead</h2><p>Enter the potential customer's details</p></div>
+      <button type="button" class="close-btn" id="closeModal" aria-label="Close">×</button>
+    </div>
+    <form id="leadForm">
+      <label for="leadName">Full name</label>
+      <input id="leadName" required maxlength="80" placeholder="Lead name">
+
+      <label for="leadCompany">Company / Business</label>
+      <input id="leadCompany" maxlength="100" placeholder="Company name">
+
+      <label for="leadEmail">Email address</label>
+      <input id="leadEmail" type="email" required maxlength="120" placeholder="name@example.com">
+
+      <label for="leadPhone">Phone number</label>
+      <input id="leadPhone" type="tel" maxlength="20" placeholder="Phone number">
+
+      <label for="leadFollowup">Follow-up date</label>
+      <input id="leadFollowup" type="date">
+
+      <label for="leadStage">Lead stage</label>
+      <select id="leadStage">
+        <option>New</option>
+        <option>Contacted</option>
+        <option>Qualified</option>
+        <option>Converted</option>
+      </select>
+
+      <div class="modal-actions">
+        <button type="button" class="cancel-btn" id="cancelModal">Cancel</button>
+        <button type="submit" class="primary-btn">Save lead</button>
+      </div>
+      <p class="modal-message" id="modalMessage" role="status"></p>
+    </form>
+  </section>
+</div>
+
+<script src="../../assets/js/crm.js"></script>
+</body>
+</html>

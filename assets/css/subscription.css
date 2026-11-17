@@ -1,0 +1,70 @@
+.subscription-layout { min-height:100vh; background:#f7f9fc; }
+.subscription-layout .sidebar { position:fixed; inset:0 auto 0 0; width:250px; z-index:100; overflow-y:auto; }
+.subscription-main { margin-left:250px; width:calc(100% - 250px); padding:30px 35px; min-height:100vh; }
+.subscription-header,.header-left { display:flex; align-items:center; }
+.subscription-header { justify-content:space-between; gap:15px; padding-bottom:24px; border-bottom:1px solid #e8edf5; }
+.header-left { gap:14px; }
+.subscription-header h1 { color:#172b4d; font-size:26px; margin:0; }
+.subscription-header p { color:#8492a7; font-size:13px; margin:6px 0 0; }
+.billing-status { background:#eaf2ff; color:#2769d8; padding:9px 13px; border-radius:20px; font-size:11px; font-weight:700; }
+.current-plan { max-width:1100px; margin:25px auto 30px; background:linear-gradient(110deg,#eaf3ff,#f7faff); border:1px solid #dce9fc; border-radius:14px; padding:19px 22px; display:flex; align-items:center; gap:16px; }
+.current-icon { width:46px; height:46px; border-radius:13px; background:#fff; color:#2769d8; display:grid; place-items:center; font-size:24px; }
+.current-info { flex:1; }
+.eyebrow { color:#6d86a8; font-size:10px; font-weight:800; letter-spacing:1px; }
+.current-info h2 { color:#18365e; margin:4px 0; font-size:18px; }
+.current-info p { color:#7f91aa; font-size:12px; margin:0; }
+.plan-badge { color:#18865a; background:#e0f6eb; padding:7px 11px; border-radius:20px; font-size:10px; font-weight:800; }
+.pricing-section,.comparison-card,.faq-card { max-width:1100px; margin:0 auto 25px; }
+.pricing-title { text-align:center; }
+.pricing-title h2,.comparison-card h2,.faq-card h2 { color:#1b3153; font-size:21px; margin:0; }
+.pricing-title p,.comparison-card > p { color:#8794a8; font-size:12px; margin:8px 0 0; }
+.billing-toggle { display:flex; width:max-content; gap:4px; margin:20px auto; padding:4px; background:#edf1f7; border-radius:9px; }
+.billing-option { border:0; background:transparent; color:#64758d; padding:9px 15px; border-radius:7px; cursor:pointer; font-size:12px; font-weight:700; }
+.billing-option.active { color:#245fc1; background:#fff; box-shadow:0 2px 7px #233f6812; }
+.billing-option span { color:#16865d; font-size:10px; margin-left:4px; }
+.pricing-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; align-items:stretch; }
+.pricing-card { position:relative; background:#fff; border:1px solid #e5ebf4; border-radius:13px; padding:21px 17px; box-shadow:0 4px 16px #1b31530a; }
+.pricing-card.popular { border:2px solid #4285ed; padding:20px 16px; }
+.popular-label { position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:#2769d8; color:#fff; border-radius:20px; white-space:nowrap; padding:6px 12px; font-size:9px; font-weight:800; letter-spacing:.5px; }
+.plan-name { color:#203b60; font-size:17px; font-weight:800; }
+.plan-top p { color:#8794a8; font-size:11px; min-height:30px; margin:7px 0 15px; }
+.price { display:flex; align-items:baseline; gap:5px; min-height:39px; margin-bottom:17px; }
+.price strong { color:#1a3458; font-size:28px; letter-spacing:-1px; }
+.price span { color:#8995a7; font-size:10px; }
+.plan-button { width:100%; min-height:39px; border-radius:8px; cursor:pointer; font-size:11px; font-weight:800; margin-bottom:23px; }
+.plan-button.outline { border:1px solid #d7e4f7; background:#f5f8ff; color:#2769d8; }
+.plan-button.filled { border:1px solid #2769d8; background:#2769d8; color:#fff; }
+.plan-button:disabled { opacity:.7; cursor:default; }
+.feature-heading { color:#94a0b1; font-size:9px; font-weight:800; letter-spacing:.8px; padding-bottom:12px; border-bottom:1px solid #eef1f6; }
+.pricing-card ul { list-style:none; margin:13px 0 0; padding:0; }
+.pricing-card li { color:#61728b; font-size:10px; line-height:1.5; padding:7px 0 7px 17px; position:relative; }
+.pricing-card li:before { content:"✓"; position:absolute; left:0; color:#249568; font-weight:900; }
+.pricing-note { text-align:center; color:#9aa5b5; font-size:10px; margin:13px 0 0; }
+.comparison-card,.faq-card { background:#fff; border:1px solid #e7edf5; border-radius:13px; padding:23px; }
+.comparison-scroll { overflow-x:auto; margin-top:20px; }
+.comparison-card table { width:100%; min-width:650px; border-collapse:collapse; }
+.comparison-card th,.comparison-card td { padding:13px 12px; text-align:center; border-bottom:1px solid #edf1f6; color:#63748b; font-size:11px; }
+.comparison-card th { color:#2b4568; background:#f7f9fc; font-size:10px; }
+.comparison-card th:first-child,.comparison-card td:first-child { text-align:left; color:#344a68; font-weight:700; }
+.faq-card details { border-bottom:1px solid #edf1f6; padding:15px 0; }
+.faq-card details:last-child { border:0; }
+.faq-card summary { cursor:pointer; color:#344a68; font-size:12px; font-weight:700; }
+.faq-card details p { color:#8290a5; font-size:11px; line-height:1.6; margin:10px 0 0; }
+.subscription-footer { text-align:center; color:#a0aaba; font-size:10px; padding:5px 0 25px; }
+.subscription-toast { position:fixed; right:25px; bottom:25px; background:#18345d; color:white; padding:13px 18px; border-radius:9px; font-size:12px; opacity:0; transform:translateY(10px); transition:.25s; pointer-events:none; z-index:300; }
+.subscription-toast.show { opacity:1; transform:translateY(0); }
+.menu-toggle { display:none; border:1px solid #e2e9f3; background:white; border-radius:8px; padding:8px 11px; cursor:pointer; color:#29456d; }
+@media(max-width:1150px) { .pricing-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:700px) {
+  .subscription-layout .sidebar { transform:translateX(-100%); transition:transform .25s; }
+  .subscription-layout .sidebar.open { transform:translateX(0); }
+  .subscription-main { margin-left:0; width:100%; padding:20px 14px; }
+  .menu-toggle { display:block; }
+  .billing-status { display:none; }
+  .subscription-header h1 { font-size:22px; }
+  .pricing-grid { grid-template-columns:1fr; gap:18px; }
+  .pricing-card { padding:22px; }
+  .pricing-card.popular { padding:21px; }
+  .current-plan { padding:15px; }
+  .comparison-card,.faq-card { padding:18px 14px; }
+}

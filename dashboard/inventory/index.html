@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory Management | Nova Business</title>
+  <link rel="stylesheet" href="../../assets/css/inventory.css">
+</head>
+<body>
+
+<div class="mobile-overlay" id="overlay"></div>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../../" class="brand">Nova<span>.</span></a>
+  <div class="workspace">WORKSPACE</div>
+
+  <nav class="side-nav">
+    <a href="../" >▦ &nbsp; Overview</a>
+    <a href="../ai/">✦ &nbsp; AI Assistant</a>
+    <a href="../website-builder/">▣ &nbsp; Website Builder</a>
+    <a href="../crm/">♧ &nbsp; CRM & Leads</a>
+    <a href="../customers/">♙ &nbsp; Customers</a>
+    <a href="../invoices/">▤ &nbsp; Invoices</a>
+    <a href="./" class="active">▣ &nbsp; Inventory</a>
+    <a href="../marketing/">✧ &nbsp; AI Marketing</a>
+    <a href="../analytics/">▥ &nbsp; Analytics</a>
+    <a href="../settings/">⚙ &nbsp; Settings</a>
+    <a href="../subscription/">◇ &nbsp; Subscription</a>
+  </nav>
+
+  <div class="sidebar-bottom">
+    <a href="https://t.me/Developeritik" target="_blank">✉ &nbsp; Help & Support</a>
+    <a href="../../">↗ &nbsp; Back to Website</a>
+  </div>
+</aside>
+
+<main class="main">
+  <header class="topbar">
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+    <div>
+      <div class="top-title">Inventory Management</div>
+      <div class="top-subtitle">Manage your products and stock</div>
+    </div>
+    <div class="profile"><span class="profile-avatar">N</span><span>My Business</span></div>
+  </header>
+
+  <section class="content">
+    <div class="page-heading">
+      <div>
+        <h1>Inventory</h1>
+        <p>Track products, stock levels and product prices.</p>
+      </div>
+      <button class="primary-btn" id="addProductBtn">＋ Add Product</button>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-label">Total Products</div>
+        <div class="stat-value" id="totalProducts">0</div>
+        <div class="stat-note">Products in your inventory</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">In Stock</div>
+        <div class="stat-value green" id="inStock">0</div>
+        <div class="stat-note">Healthy stock levels</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Low Stock</div>
+        <div class="stat-value orange" id="lowStock">0</div>
+        <div class="stat-note">Products need restocking</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Out of Stock</div>
+        <div class="stat-value red" id="outStock">0</div>
+        <div class="stat-note">Products unavailable</div>
+      </div>
+    </div>
+
+    <div class="alert-box" id="lowStockAlert">
+      <span class="alert-icon">!</span>
+      <div>
+        <strong>Low stock alert</strong>
+        <p id="alertMessage">Some products are running low.</p>
+      </div>
+    </div>
+
+    <section class="inventory-panel">
+      <div class="panel-heading">
+        <div>
+          <h2>Product List</h2>
+          <p>View and manage all your products</p>
+        </div>
+        <span class="product-count" id="productCount">0 products</span>
+      </div>
+
+      <div class="filters">
+        <input type="search" id="searchInput" placeholder="Search product name or SKU...">
+        <select id="categoryFilter">
+          <option value="all">All Categories</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Clothing">Clothing</option>
+          <option value="Food">Food</option>
+          <option value="Accessories">Accessories</option>
+          <option value="Other">Other</option>
+        </select>
+        <select id="statusFilter">
+          <option value="all">All Stock Status</option>
+          <option value="in">In Stock</option>
+          <option value="low">Low Stock</option>
+          <option value="out">Out of Stock</option>
+        </select>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>PRODUCT</th>
+              <th>SKU</th>
+              <th>CATEGORY</th>
+              <th>STOCK</th>
+              <th>PRICE</th>
+              <th>STATUS</th>
+              <th>ACTIONS</th>
+            </tr>
+          </thead>
+          <tbody id="productTable"></tbody>
+        </table>
+        <div class="empty-state" id="emptyState" hidden>
+          <div class="empty-icon">▣</div>
+          <h3>No products found</h3>
+          <p>Try another search or add a new product.</p>
+        </div>
+      </div>
+    </section>
+    <p class="demo-note">Demo mode: inventory changes are temporary and will reset when the page is refreshed. Database saving will be added during backend integration.</p>
+  </section>
+</main>
+
+<div class="modal" id="productModal">
+  <div class="modal-card">
+    <div class="modal-heading">
+      <div>
+        <h2 id="modalTitle">Add New Product</h2>
+        <p>Enter your product details below.</p>
+      </div>
+      <button class="close-btn" id="closeModal" aria-label="Close">×</button>
+    </div>
+
+    <form id="productForm">
+      <input type="hidden" id="editId">
+      <label>Product Name</label>
+      <input id="productName" type="text" placeholder="e.g. Wireless Headphones" required maxlength="80">
+
+      <div class="form-row">
+        <div>
+          <label>SKU</label>
+          <input id="productSku" type="text" placeholder="e.g. WH-001" required maxlength="30">
+        </div>
+        <div>
+          <label>Category</label>
+          <select id="productCategory" required>
+            <option value="">Select category</option>
+            <option>Electronics</option>
+            <option>Clothing</option>
+            <option>Food</option>
+            <option>Accessories</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div>
+          <label>Stock Quantity</label>
+          <input id="productStock" type="number" min="0" step="1" placeholder="0" required>
+        </div>
+        <div>
+          <label>Low Stock Threshold</label>
+          <input id="productThreshold" type="number" min="0" step="1" value="5" required>
+        </div>
+      </div>
+
+      <label>Price (₹)</label>
+      <input id="productPrice" type="number" min="0" step="0.01" placeholder="0.00" required>
+
+      <div class="modal-actions">
+        <button type="button" class="secondary-btn" id="cancelModal">Cancel</button>
+        <button type="submit" class="primary-btn" id="saveProductBtn">Save Product</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<script src="../../assets/js/inventory.js"></script>
+</body>
+</html>

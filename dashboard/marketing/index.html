@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Marketing Studio | Nova Business</title>
+<link rel="stylesheet" href="../../assets/css/marketing.css">
+</head>
+<body>
+
+<div class="overlay" id="overlay"></div>
+<aside class="sidebar" id="sidebar">
+  <a href="../../" class="brand">Nova<span>.</span></a>
+  <div class="workspace">WORKSPACE</div>
+  <nav class="side-nav">
+    <a href="../">▦ &nbsp; Overview</a>
+    <a href="../ai/">✦ &nbsp; AI Assistant</a>
+    <a href="../website-builder/">▣ &nbsp; Website Builder</a>
+    <a href="../crm/">♧ &nbsp; CRM & Leads</a>
+    <a href="../customers/">♙ &nbsp; Customers</a>
+    <a href="../invoices/">▤ &nbsp; Invoices</a>
+    <a href="../inventory/">▣ &nbsp; Inventory</a>
+    <a href="./" class="active">✧ &nbsp; AI Marketing</a>
+    <a href="../analytics/">▥ &nbsp; Analytics</a>
+    <a href="../settings/">⚙ &nbsp; Settings</a>
+    <a href="../subscription/">◇ &nbsp; Subscription</a>
+  </nav>
+  <div class="sidebar-bottom">
+    <a href="https://t.me/Developeritik" target="_blank">✉ &nbsp; Help & Support</a>
+    <a href="../../">↗ &nbsp; Back to Website</a>
+  </div>
+</aside>
+
+<main class="main">
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <div>
+    <div class="top-title">AI Marketing Studio</div>
+    <div class="top-subtitle">Create smarter marketing content</div>
+  </div>
+  <div class="profile"><span class="avatar">N</span><span>My Business</span></div>
+</header>
+
+<section class="content">
+  <div class="heading">
+    <div>
+      <h1>AI Marketing Studio</h1>
+      <p>Plan campaigns, create content and grow your business.</p>
+    </div>
+    <span class="demo-tag">DEMO MODE</span>
+  </div>
+
+  <div class="welcome">
+    <div class="welcome-content">
+      <span class="eyebrow">✦ NOVA AI MARKETING</span>
+      <h2>Your ideas.<br>Our creative assistant.</h2>
+      <p>Generate social media content, captions, hashtags and campaign ideas from one workspace.</p>
+      <button class="white-btn" id="startCreating">Create Content &nbsp; →</button>
+    </div>
+    <div class="welcome-art">✧</div>
+  </div>
+
+  <div class="section-title">
+    <div><h2>Marketing Tools</h2><p>Choose what you want to create</p></div>
+  </div>
+
+  <div class="tools-grid">
+    <button class="tool-card selected" data-tool="post">
+      <span class="tool-icon purple">▧</span>
+      <strong>Social Media Post</strong>
+      <small>Create engaging posts for your brand</small>
+      <span class="tool-arrow">→</span>
+    </button>
+    <button class="tool-card" data-tool="caption">
+      <span class="tool-icon blue">✎</span>
+      <strong>Caption Generator</strong>
+      <small>Write catchy captions for your content</small>
+      <span class="tool-arrow">→</span>
+    </button>
+    <button class="tool-card" data-tool="hashtags">
+      <span class="tool-icon green">#</span>
+      <strong>Hashtag Generator</strong>
+      <small>Find relevant hashtags for your niche</small>
+      <span class="tool-arrow">→</span>
+    </button>
+    <button class="tool-card" data-tool="ideas">
+      <span class="tool-icon orange">✧</span>
+      <strong>Content Ideas</strong>
+      <small>Discover fresh content ideas</small>
+      <span class="tool-arrow">→</span>
+    </button>
+    <button class="tool-card" data-tool="email">
+      <span class="tool-icon pink">✉</span>
+      <strong>Marketing Email</strong>
+      <small>Draft promotional email content</small>
+      <span class="tool-arrow">→</span>
+    </button>
+    <button class="tool-card" data-tool="campaign">
+      <span class="tool-icon cyan">◷</span>
+      <strong>Campaign Planner</strong>
+      <small>Plan a simple marketing campaign</small>
+      <span class="tool-arrow">→</span>
+    </button>
+  </div>
+
+  <div class="creator-section" id="creator">
+    <div class="section-title">
+      <div><h2 id="creatorTitle">Social Media Post Generator</h2><p id="creatorDescription">Create content for your next social media post.</p></div>
+    </div>
+
+    <div class="creator-grid">
+      <div class="form-panel">
+        <form id="marketingForm">
+          <label for="businessName">Business / Brand Name</label>
+          <input id="businessName" placeholder="e.g. Nova Fashion" required>
+
+          <label for="platform">Platform</label>
+          <select id="platform">
+            <option>Instagram</option>
+            <option>Facebook</option>
+            <option>LinkedIn</option>
+            <option>X (Twitter)</option>
+            <option>WhatsApp</option>
+          </select>
+
+          <label for="topic">Product, Service or Topic</label>
+          <textarea id="topic" rows="3" placeholder="Describe what you want to promote..." required></textarea>
+
+          <label for="tone">Content Tone</label>
+          <select id="tone">
+            <option>Professional</option>
+            <option>Friendly</option>
+            <option>Creative</option>
+            <option>Promotional</option>
+            <option>Informative</option>
+          </select>
+
+          <label for="audience">Target Audience</label>
+          <input id="audience" placeholder="e.g. Young adults, local customers">
+
+          <button class="generate-btn" type="submit" id="generateBtn">✦ Generate Content</button>
+          <p class="form-note">Demo generator: actual AI output will be enabled after API integration.</p>
+        </form>
+      </div>
+
+      <div class="result-panel">
+        <div class="result-header">
+          <div><h3>Your Content</h3><p>Generated content will appear here.</p></div>
+          <span class="result-icon">✧</span>
+        </div>
+        <div class="result-placeholder" id="placeholder">
+          <div class="placeholder-icon">✎</div>
+          <strong>Your creative space</strong>
+          <p>Enter your details and click Generate Content to see a sample result.</p>
+        </div>
+        <div id="result" class="result-content" hidden>
+          <div class="result-label">GENERATED PREVIEW</div>
+          <div id="resultText" class="result-text"></div>
+          <div class="result-actions">
+            <button class="copy-btn" id="copyBtn">▣ Copy Content</button>
+            <button class="secondary-btn" id="regenerateBtn">↻ Try Again</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title campaign-heading">
+    <div><h2>Campaign Workspace</h2><p>Keep track of your marketing plans</p></div>
+    <button class="primary-btn" id="addCampaign">＋ New Campaign</button>
+  </div>
+
+  <div class="campaign-panel">
+    <div class="campaign-empty" id="campaignEmpty">
+      <div>◷</div><strong>No campaigns yet</strong>
+      <p>Create your first campaign to start planning your marketing activities.</p>
+    </div>
+    <div id="campaignList"></div>
+  </div>
+  <p class="demo-note">Demo mode: content and campaign data are temporary. AI generation, scheduling and publishing will be connected later.</p>
+</section>
+</main>
+
+<div class="modal" id="campaignModal">
+  <div class="modal-card">
+    <div class="modal-head">
+      <div><h2>New Campaign</h2><p>Add a marketing campaign to your workspace.</p></div>
+      <button id="closeCampaign" class="close-btn">×</button>
+    </div>
+    <form id="campaignForm">
+      <label for="campaignName">Campaign Name</label>
+      <input id="campaignName" placeholder="e.g. Winter Sale" required maxlength="80">
+      <label for="campaignPlatform">Platform</label>
+      <select id="campaignPlatform">
+        <option>Instagram</option><option>Facebook</option>
+        <option>LinkedIn</option><option>WhatsApp</option><option>Multi-platform</option>
+      </select>
+      <label for="campaignDate">Planned Date</label>
+      <input type="date" id="campaignDate" required>
+      <label for="campaignGoal">Campaign Goal</label>
+      <input id="campaignGoal" placeholder="e.g. Increase product awareness" required maxlength="120">
+      <div class="modal-actions">
+        <button type="button" class="secondary-btn" id="cancelCampaign">Cancel</button>
+        <button type="submit" class="primary-btn">Create Campaign</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<script src="../../assets/js/marketing.js"></script>
+</body>
+</html>

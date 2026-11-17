@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analytics & Reports | Nova Business</title>
+<link rel="stylesheet" href="../../assets/css/analytics.css">
+</head>
+<body>
+<div class="overlay" id="overlay"></div>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../../" class="brand">Nova<span>.</span></a>
+  <div class="workspace">WORKSPACE</div>
+  <nav class="side-nav">
+    <a href="../">▦ &nbsp; Overview</a>
+    <a href="../ai/">✦ &nbsp; AI Assistant</a>
+    <a href="../website-builder/">▣ &nbsp; Website Builder</a>
+    <a href="../crm/">♧ &nbsp; CRM & Leads</a>
+    <a href="../customers/">♙ &nbsp; Customers</a>
+    <a href="../invoices/">▤ &nbsp; Invoices</a>
+    <a href="../inventory/">▣ &nbsp; Inventory</a>
+    <a href="../marketing/">✧ &nbsp; AI Marketing</a>
+    <a href="./" class="active">▥ &nbsp; Analytics</a>
+    <a href="../settings/">⚙ &nbsp; Settings</a>
+    <a href="../subscription/">◇ &nbsp; Subscription</a>
+  </nav>
+  <div class="sidebar-bottom">
+    <a href="https://t.me/Developeritik" target="_blank">✉ &nbsp; Help & Support</a>
+    <a href="../../">↗ &nbsp; Back to Website</a>
+  </div>
+</aside>
+
+<main class="main">
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <div>
+    <div class="top-title">Analytics & Reports</div>
+    <div class="top-subtitle">Understand your business performance</div>
+  </div>
+  <div class="profile"><span class="avatar">N</span><span>My Business</span></div>
+</header>
+
+<section class="content">
+  <div class="heading">
+    <div>
+      <h1>Analytics & Reports</h1>
+      <p>Track your business performance and growth.</p>
+    </div>
+    <div class="heading-actions">
+      <select id="periodFilter">
+        <option value="month">This Month</option>
+        <option value="quarter">Last 3 Months</option>
+        <option value="year">This Year</option>
+      </select>
+      <button class="primary-btn" id="exportBtn">↓ Export Report</button>
+    </div>
+  </div>
+
+  <div class="demo-banner">ⓘ &nbsp; Sample analytics data is being displayed in demo mode.</div>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-top"><span>Total Revenue</span><span class="stat-icon blue">₹</span></div>
+      <div class="stat-value" id="revenue">₹1,25,000</div>
+      <div class="stat-change positive" id="revenueChange">↑ 12.5% <span>vs previous period</span></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-top"><span>Total Customers</span><span class="stat-icon purple">♙</span></div>
+      <div class="stat-value" id="customers">248</div>
+      <div class="stat-change positive" id="customerChange">↑ 8.2% <span>vs previous period</span></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-top"><span>Total Invoices</span><span class="stat-icon orange">▤</span></div>
+      <div class="stat-value" id="invoices">156</div>
+      <div class="stat-change positive" id="invoiceChange">↑ 6.4% <span>vs previous period</span></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-top"><span>Pending Payments</span><span class="stat-icon red">◷</span></div>
+      <div class="stat-value" id="pending">₹18,500</div>
+      <div class="stat-change negative">Needs attention</div>
+    </div>
+  </div>
+
+  <div class="chart-grid">
+    <section class="panel revenue-panel">
+      <div class="panel-heading">
+        <div><h2>Revenue Overview</h2><p>Revenue performance over time</p></div>
+        <span class="legend"><i></i> Revenue</span>
+      </div>
+      <div class="chart-wrap">
+        <div class="y-labels" id="yLabels">
+          <span>₹50k</span><span>₹40k</span><span>₹30k</span><span>₹20k</span><span>₹10k</span><span>₹0</span>
+        </div>
+        <svg id="revenueChart" viewBox="0 0 700 230" preserveAspectRatio="none" role="img" aria-label="Revenue trend chart">
+          <defs>
+            <linearGradient id="areaFill" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0%" stop-color="#3978ee" stop-opacity=".22"/>
+              <stop offset="100%" stop-color="#3978ee" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <g id="chartGrid"></g>
+          <path id="chartArea" fill="url(#areaFill)"></path>
+          <path id="chartLine" fill="none" stroke="#3478ed" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+          <g id="chartPoints"></g>
+        </svg>
+      </div>
+      <div class="x-labels" id="xLabels"></div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-heading">
+        <div><h2>Revenue Sources</h2><p>Where your revenue comes from</p></div>
+      </div>
+      <div class="donut-area">
+        <div class="donut" id="donut"><div><strong>₹1.25L</strong><small>Total Revenue</small></div></div>
+      </div>
+      <div class="source-list">
+        <div><i class="dot dot-blue"></i><span>Products</span><strong>45%</strong></div>
+        <div><i class="dot dot-purple"></i><span>Services</span><strong>30%</strong></div>
+        <div><i class="dot dot-orange"></i><span>Subscriptions</span><strong>25%</strong></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="bottom-grid">
+    <section class="panel">
+      <div class="panel-heading">
+        <div><h2>Customer Growth</h2><p>New customers added each month</p></div>
+      </div>
+      <div class="growth-chart" id="growthChart"></div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-heading">
+        <div><h2>Invoice Overview</h2><p>Invoice payment status</p></div>
+      </div>
+      <div class="invoice-stats">
+        <div><span class="invoice-dot paid"></span><span>Paid Invoices</span><strong id="paidCount">112</strong></div>
+        <div><span class="invoice-dot unpaid"></span><span>Unpaid Invoices</span><strong id="unpaidCount">28</strong></div>
+        <div><span class="invoice-dot overdue"></span><span>Overdue Invoices</span><strong id="overdueCount">16</strong></div>
+      </div>
+      <div class="invoice-progress">
+        <div class="progress-segment paid-segment" id="paidBar"></div>
+        <div class="progress-segment unpaid-segment" id="unpaidBar"></div>
+        <div class="progress-segment overdue-segment" id="overdueBar"></div>
+      </div>
+      <p class="invoice-foot" id="invoiceSummary">72% of invoices have been paid.</p>
+    </section>
+  </div>
+
+  <section class="panel activity-panel">
+    <div class="panel-heading">
+      <div><h2>Recent Business Activity</h2><p>Latest activity overview</p></div>
+    </div>
+    <div class="activity-list" id="activityList"></div>
+  </section>
+
+  <p class="demo-note">Demo data only. Real reports, customer metrics and revenue analytics will be connected to your database during backend development.</p>
+</section>
+</main>
+<script src="../../assets/js/analytics.js"></script>
+</body>
+</html>

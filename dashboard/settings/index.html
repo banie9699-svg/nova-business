@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings | Nova Business</title>
+  <link rel="stylesheet" href="../../assets/css/dashboard.css">
+  <link rel="stylesheet" href="../../assets/css/settings.css">
+</head>
+<body>
+
+<div class="settings-layout">
+  <aside class="sidebar" id="sidebar">
+    <a href="../" class="brand">Nova<span>.</span></a>
+
+    <div class="sidebar-label">WORKSPACE</div>
+    <nav class="side-nav">
+      <a href="../">Dashboard</a>
+      <a href="../customers/">Customers</a>
+      <a href="../crm/">CRM & Leads</a>
+      <a href="../invoices/">Invoices</a>
+      <a href="../inventory/">Inventory</a>
+      <a href="../marketing/">Marketing Studio</a>
+      <a href="../analytics/">Analytics</a>
+    </nav>
+
+    <div class="sidebar-label">TOOLS</div>
+    <nav class="side-nav">
+      <a href="../ai/">AI Assistant</a>
+      <a href="../website-builder/">Website Builder</a>
+    </nav>
+
+    <div class="sidebar-label">ACCOUNT</div>
+    <nav class="side-nav">
+      <a href="../subscription/">Subscription</a>
+      <a href="./" class="active">Settings</a>
+      <a href="../../index.html">Back to Website</a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="sidebar-user">
+        <div class="user-avatar">N</div>
+        <div>
+          <strong>Nova User</strong>
+          <small>Business Account</small>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main settings-main">
+    <header class="settings-topbar">
+      <div class="topbar-left">
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+        <div>
+          <h1>Settings</h1>
+          <p>Manage your business and account preferences.</p>
+        </div>
+      </div>
+      <span class="account-status">● Account Settings</span>
+    </header>
+
+    <div class="settings-content">
+      <div class="settings-heading">
+        <div>
+          <h2>General Settings</h2>
+          <p>Keep your Nova Business workspace up to date.</p>
+        </div>
+        <button class="primary-btn" id="saveAll">Save Changes</button>
+      </div>
+
+      <section class="settings-card">
+        <div class="card-heading">
+          <div class="heading-icon">🏢</div>
+          <div>
+            <h3>Business Profile</h3>
+            <p>Basic information about your business.</p>
+          </div>
+        </div>
+
+        <form id="businessForm" class="settings-form">
+          <div class="form-grid">
+            <label>Business Name
+              <input name="businessName" type="text" placeholder="Your business name">
+            </label>
+            <label>Business Email
+              <input name="businessEmail" type="email" placeholder="business@example.com">
+            </label>
+            <label>Phone Number
+              <input name="phone" type="tel" placeholder="+91 98765 43210">
+            </label>
+            <label>Business Category
+              <select name="category">
+                <option value="">Select category</option>
+                <option>Technology</option>
+                <option>Retail & Shopping</option>
+                <option>Education</option>
+                <option>Healthcare</option>
+                <option>Food & Restaurant</option>
+                <option>Finance</option>
+                <option>Other</option>
+              </select>
+            </label>
+            <label class="full-field">Business Address
+              <textarea name="address" rows="3" placeholder="Enter your business address"></textarea>
+            </label>
+            <label class="full-field">Website URL
+              <input name="website" type="url" placeholder="https://yourwebsite.com">
+            </label>
+          </div>
+        </form>
+      </section>
+
+      <section class="settings-card">
+        <div class="card-heading">
+          <div class="heading-icon">🌐</div>
+          <div>
+            <h3>Account Preferences</h3>
+            <p>Customize your workspace preferences.</p>
+          </div>
+        </div>
+
+        <form id="preferencesForm" class="settings-form">
+          <div class="form-grid">
+            <label>Language
+              <select name="language">
+                <option value="English">English</option>
+                <option value="Hindi">Hindi</option>
+              </select>
+            </label>
+            <label>Timezone
+              <select name="timezone">
+                <option value="Asia/Kolkata">India Standard Time (IST)</option>
+                <option value="UTC">UTC</option>
+                <option value="Asia/Dubai">Dubai</option>
+                <option value="Europe/London">London</option>
+              </select>
+            </label>
+            <label>Currency
+              <select name="currency">
+                <option value="INR">Indian Rupee (₹ INR)</option>
+                <option value="USD">US Dollar ($ USD)</option>
+                <option value="EUR">Euro (€ EUR)</option>
+                <option value="GBP">British Pound (£ GBP)</option>
+              </select>
+            </label>
+            <label>Date Format
+              <select name="dateFormat">
+                <option value="DD/MM/YYYY">DD/MM/YYYY</option>
+                <option value="MM/DD/YYYY">MM/DD/YYYY</option>
+                <option value="YYYY-MM-DD">YYYY-MM-DD</option>
+              </select>
+            </label>
+          </div>
+        </form>
+      </section>
+
+      <section class="settings-card">
+        <div class="card-heading">
+          <div class="heading-icon">🔔</div>
+          <div>
+            <h3>Notifications</h3>
+            <p>Choose which updates you want to receive.</p>
+          </div>
+        </div>
+
+        <div class="notification-list">
+          <label class="notification-row">
+            <span><strong>Email Notifications</strong><small>Receive important account updates.</small></span>
+            <input type="checkbox" name="emailNotifications" checked>
+          </label>
+          <label class="notification-row">
+            <span><strong>Low Stock Alerts</strong><small>Get notified when inventory is running low.</small></span>
+            <input type="checkbox" name="lowStockAlerts" checked>
+          </label>
+          <label class="notification-row">
+            <span><strong>Invoice Reminders</strong><small>Get reminders about pending invoices.</small></span>
+            <input type="checkbox" name="invoiceReminders" checked>
+          </label>
+          <label class="notification-row">
+            <span><strong>Marketing Updates</strong><small>Receive product news and announcements.</small></span>
+            <input type="checkbox" name="marketingUpdates">
+          </label>
+        </div>
+      </section>
+
+      <section class="settings-card">
+        <div class="card-heading">
+          <div class="heading-icon">🔐</div>
+          <div>
+            <h3>Security</h3>
+            <p>Review your account security options.</p>
+          </div>
+        </div>
+
+        <div class="security-item">
+          <div>
+            <strong>Password</strong>
+            <small>Change your account password.</small>
+          </div>
+          <button class="secondary-btn" id="passwordToggle">Change Password</button>
+        </div>
+
+        <form id="passwordForm" class="password-form hidden">
+          <label>Current Password
+            <input type="password" autocomplete="current-password" required>
+          </label>
+          <label>New Password
+            <input type="password" autocomplete="new-password" minlength="8" required>
+          </label>
+          <label>Confirm New Password
+            <input type="password" autocomplete="new-password" minlength="8" required>
+          </label>
+          <button type="submit" class="primary-btn">Submit</button>
+          <p class="demo-note">Demo only: password changes will work after secure backend authentication is connected.</p>
+        </form>
+
+        <div class="security-item">
+          <div>
+            <strong>Two-Factor Authentication</strong>
+            <small>Additional account protection.</small>
+          </div>
+          <span class="coming-soon">Coming Soon</span>
+        </div>
+
+        <div class="security-item">
+          <div>
+            <strong>Active Sessions</strong>
+            <small>Session management will be available after backend integration.</small>
+          </div>
+          <span class="session-label">Current Demo Session</span>
+        </div>
+      </section>
+
+      <section class="settings-card support-card">
+        <div class="card-heading">
+          <div class="heading-icon">💬</div>
+          <div>
+            <h3>Help & Support</h3>
+            <p>Need help with your Nova Business account?</p>
+          </div>
+        </div>
+        <div class="support-content">
+          <div>
+            <strong>Contact Nova Business Support</strong>
+            <p>Reach out to our support team through Telegram.</p>
+          </div>
+          <a class="secondary-btn" href="https://t.me/Developeritik" target="_blank" rel="noopener noreferrer">Contact Support ↗</a>
+        </div>
+      </section>
+
+      <div class="settings-footer">
+        <span>Nova Business Settings</span>
+        <span>Changes are saved locally in this demo.</span>
+      </div>
+    </div>
+  </main>
+</div>
+
+<div class="settings-toast" id="settingsToast" role="status" aria-live="polite"></div>
+
+<script src="../../assets/js/settings.js"></script>
+</body>
+</html>

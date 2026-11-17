@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Customers | Nova Business</title>
+  <link rel="stylesheet" href="../../assets/css/dashboard.css">
+  <link rel="stylesheet" href="../../assets/css/customers.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <a href="../../index.html" class="brand">
+      <span class="brand-icon">N</span>
+      <span>NOVA <small>BUSINESS</small></span>
+    </a>
+
+    <div class="workspace">
+      <div class="workspace-icon">NB</div>
+      <div><strong>My Business</strong><small>Free workspace</small></div>
+      <span class="dots">•••</span>
+    </div>
+
+    <nav>
+      <p class="nav-label">WORKSPACE</p>
+      <a class="nav-link" href="../index.html">▦ <span>Overview</span></a>
+      <a class="nav-link" href="../ai/">✦ <span>AI Assistant</span></a>
+      <a class="nav-link" href="../website-builder/">▣ <span>Website Builder</span></a>
+      <a class="nav-link" href="../crm/">♧ <span>CRM & Leads</span></a>
+      <a class="nav-link active" href="./">♙ <span>Customers</span></a>
+      <a class="nav-link" href="../invoices/">▤ <span>Invoices</span></a>
+      <a class="nav-link" href="../inventory/">▥ <span>Inventory</span></a>
+      <p class="nav-label">GROW YOUR BUSINESS</p>
+      <a class="nav-link" href="../marketing/">✧ <span>AI Marketing</span></a>
+      <a class="nav-link" href="../analytics/">▥ <span>Analytics</span></a>
+      <p class="nav-label">ACCOUNT</p>
+      <a class="nav-link" href="../settings/">⚙ <span>Settings</span></a>
+      <a class="nav-link" href="../subscription/">◇ <span>Subscription</span></a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="help-card">
+        <strong>Need help?</strong>
+        <p>We're here to help your business grow.</p>
+        <a href="https://t.me/Developeritik" target="_blank" rel="noopener">Contact Support →</a>
+      </div>
+      <div class="user-profile">
+        <div class="avatar">U</div>
+        <div><strong>Demo User</strong><small>Free Plan</small></div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+      <div class="breadcrumb">Workspace <span>/</span> Customers</div>
+      <div class="top-actions"><div class="top-avatar">U</div></div>
+    </header>
+
+    <div class="content">
+      <section class="customer-welcome">
+        <div>
+          <p class="eyebrow">CUSTOMER MANAGEMENT</p>
+          <h1>Customers</h1>
+          <p>Manage your contacts and build stronger customer relationships.</p>
+        </div>
+        <button class="primary-btn" id="addCustomerBtn">＋ Add customer</button>
+      </section>
+
+      <section class="customer-stats">
+        <article class="customer-stat">
+          <span>Total customers</span><strong id="totalCount">3</strong>
+          <small>All saved contacts</small>
+        </article>
+        <article class="customer-stat">
+          <span>Active customers</span><strong id="activeCount">2</strong>
+          <small>Currently active</small>
+        </article>
+        <article class="customer-stat">
+          <span>New customers</span><strong id="newCount">1</strong>
+          <small>Recently added</small>
+        </article>
+      </section>
+
+      <section class="customer-panel">
+        <div class="customer-panel-heading">
+          <div><h2>Customer directory</h2><p>View and manage your business contacts</p></div>
+          <span class="demo-tag">DEMO DATA</span>
+        </div>
+
+        <div class="customer-controls">
+          <div class="search-box">
+            <span>⌕</span>
+            <input type="search" id="customerSearch" placeholder="Search name, email or business...">
+          </div>
+          <select id="statusFilter" aria-label="Filter customers">
+            <option value="all">All customers</option>
+            <option value="Active">Active</option>
+            <option value="New">New</option>
+            <option value="Inactive">Inactive</option>
+          </select>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>CUSTOMER</th>
+                <th>BUSINESS</th>
+                <th>EMAIL</th>
+                <th>PHONE</th>
+                <th>STATUS</th>
+                <th>ACTION</th>
+              </tr>
+            </thead>
+            <tbody id="customerRows"></tbody>
+          </table>
+        </div>
+        <div class="empty-state" id="emptyState" hidden>No customers found. Try another search or add a customer.</div>
+        <div class="table-footer"><span id="resultCount">Showing 3 customers</span><span>Sample workspace</span></div>
+      </section>
+      <footer>© <span id="year"></span> Nova Business. All rights reserved.</footer>
+    </div>
+  </main>
+</div>
+
+<div class="overlay" id="overlay"></div>
+
+<div class="modal-backdrop" id="customerModal" hidden>
+  <section class="customer-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-heading">
+      <div><h2 id="modalTitle">Add customer</h2><p>Add a contact to your directory</p></div>
+      <button type="button" class="close-btn" id="closeModal" aria-label="Close">×</button>
+    </div>
+    <form id="customerForm">
+      <label for="customerName">Full name</label>
+      <input id="customerName" required maxlength="80" placeholder="Customer name">
+
+      <label for="customerBusiness">Business name</label>
+      <input id="customerBusiness" maxlength="100" placeholder="Business or company">
+
+      <label for="customerEmail">Email address</label>
+      <input id="customerEmail" type="email" required maxlength="120" placeholder="name@example.com">
+
+      <label for="customerPhone">Phone number</label>
+      <input id="customerPhone" type="tel" maxlength="20" placeholder="Phone number">
+
+      <label for="customerStatus">Status</label>
+      <select id="customerStatus">
+        <option>Active</option>
+        <option>New</option>
+        <option>Inactive</option>
+      </select>
+
+      <div class="modal-actions">
+        <button type="button" class="cancel-btn" id="cancelModal">Cancel</button>
+        <button type="submit" class="primary-btn">Save customer</button>
+      </div>
+      <p class="modal-message" id="modalMessage" role="status"></p>
+    </form>
+  </section>
+</div>
+
+<script src="../../assets/js/customers.js"></script>
+</body>
+</html>

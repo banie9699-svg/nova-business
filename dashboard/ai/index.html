@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Assistant | Nova Business</title>
+<link rel="stylesheet" href="../../assets/css/dashboard.css">
+<link rel="stylesheet" href="../../assets/css/ai-assistant.css?v=4">
+</head>
+<body>
+
+<div class="ai-layout">
+  <aside class="sidebar" id="sidebar">
+    <a href="../" class="brand">Nova<span>.</span></a>
+    <div class="sidebar-label">WORKSPACE</div>
+    <nav class="side-nav">
+      <a href="../">Dashboard</a>
+      <a href="../customers/">Customers</a>
+      <a href="../crm/">CRM & Leads</a>
+      <a href="../invoices/">Invoices</a>
+      <a href="../inventory/">Inventory</a>
+      <a href="../marketing/">Marketing Studio</a>
+      <a href="../analytics/">Analytics</a>
+    </nav>
+    <div class="sidebar-label">TOOLS</div>
+    <nav class="side-nav">
+      <a href="./" class="active">AI Assistant</a>
+      <a href="../website-builder/">Website Builder</a>
+    </nav>
+    <div class="sidebar-label">ACCOUNT</div>
+    <nav class="side-nav">
+      <a href="../subscription/">Subscription</a>
+      <a href="../settings/">Settings</a>
+      <a href="../../index.html">Back to Website</a>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="sidebar-user">
+        <div class="user-avatar">N</div>
+        <div><strong>Nova User</strong><small>Business Account</small></div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main ai-main">
+    <header class="ai-header">
+      <div class="ai-header-left">
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+        <div>
+          <h1>AI Assistant</h1>
+          <p>Your AI-powered business companion.</p>
+        </div>
+      </div>
+      <div class="ai-header-actions">
+        <span class="ai-status"><i></i> Demo Mode</span>
+        <button class="new-chat-btn" id="newChat">＋ New Chat</button>
+      </div>
+    </header>
+
+    <div class="ai-workspace">
+      <aside class="chat-history">
+        <div class="history-heading">
+          <strong>Chat History</strong>
+          <button id="clearHistory" title="Clear history">Clear</button>
+        </div>
+        <input id="historySearch" class="history-search" type="search" placeholder="Search conversations...">
+        <div id="historyList" class="history-list">
+          <p class="empty-history">Your conversations will appear here.</p>
+        </div>
+
+        <div class="usage-card">
+          <span>AI USAGE</span>
+          <strong>Demo usage</strong>
+          <div class="usage-track"><span></span></div>
+          <small>Real usage limits will be connected later.</small>
+        </div>
+      </aside>
+
+      <section class="chat-panel">
+        <div class="chat-toolbar">
+          <div class="model-select-wrap">
+            <label for="modelSelect">AI MODEL</label>
+            <select id="modelSelect">
+              <option value="Nova Business AI">Nova Business AI</option>
+              <option value="Fast Assistant">Fast Assistant (Demo)</option>
+              <option value="Creative Assistant">Creative Assistant (Demo)</option>
+            </select>
+          </div>
+          <div class="chat-toolbar-actions">
+            <button id="historyToggle" class="history-toggle">☰ History</button>
+            <button id="clearChat" class="clear-chat-btn">Clear Chat</button>
+          </div>
+        </div>
+
+        <div class="messages" id="messages" aria-live="polite">
+          <div class="welcome-screen" id="welcomeScreen">
+            <div class="welcome-logo">N<span>✦</span></div>
+            <h2>How can I help your business?</h2>
+            <p>Ask questions, explore ideas and get help with your daily business tasks.</p>
+
+            <div class="prompt-grid">
+              <button class="prompt-card" data-prompt="Create a professional marketing strategy for my small business.">
+                <span>📈</span><strong>Marketing Strategy</strong>
+                <small>Grow your business with ideas</small>
+              </button>
+              <button class="prompt-card" data-prompt="Write a professional customer support reply for a delayed order.">
+                <span>💬</span><strong>Customer Support</strong>
+                <small>Write helpful customer replies</small>
+              </button>
+              <button class="prompt-card" data-prompt="Suggest ways to improve my monthly business sales.">
+                <span>🚀</span><strong>Business Growth</strong>
+                <small>Discover new opportunities</small>
+              </button>
+              <button class="prompt-card" data-prompt="Create a simple weekly business plan for a small shop.">
+                <span>🗓️</span><strong>Business Planning</strong>
+                <small>Organize your next steps</small>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="composer-area">
+          <form id="chatForm" class="chat-composer">
+            <textarea id="chatInput" rows="1" placeholder="Message Nova AI..." aria-label="Message Nova AI"></textarea>
+            <div class="composer-bottom">
+              <span>AI responses are demo-generated right now.</span>
+              <button type="submit" id="sendButton" aria-label="Send message">↑</button>
+            </div>
+          </form>
+          <p class="disclaimer">Nova AI can make mistakes. Verify important business decisions.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<script src="../../assets/js/ai-assistant.js?v=4"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reset Password | Nova Business</title>
+  <link rel="stylesheet" href="../auth.css">
+</head>
+<body>
+<main class="auth-layout">
+  <section class="auth-visual">
+    <a class="brand" href="../../index.html">
+      <span class="brand-icon">N</span>
+      <span>NOVA <small>BUSINESS</small></span>
+    </a>
+    <div class="visual-content">
+      <span class="visual-tag">ACCOUNT SECURITY</span>
+      <h1>Your business workspace, protected.</h1>
+      <p>We make account access simple and secure. Follow the password recovery process to regain access.</p>
+      <div class="visual-features">
+        <div><span>✓</span> Secure account recovery</div>
+        <div><span>✦</span> Protected workspace</div>
+        <div><span>↗</span> Get back to business</div>
+      </div>
+    </div>
+    <div class="visual-footer">© <span class="year"></span> Nova Business</div>
+  </section>
+
+  <section class="auth-main">
+    <div class="auth-box">
+      <a class="mobile-brand brand" href="../../index.html">
+        <span class="brand-icon">N</span>
+        <span>NOVA <small>BUSINESS</small></span>
+      </a>
+
+      <div class="auth-heading">
+        <span class="eyebrow">ACCOUNT RECOVERY</span>
+        <h2>Forgot your password?</h2>
+        <p>Enter your registered email address. We'll explain the next recovery step once email services are connected.</p>
+      </div>
+
+      <form id="resetForm">
+        <label for="email">Email address</label>
+        <input type="email" id="email" placeholder="you@example.com" autocomplete="email" required>
+        <button class="submit-btn" type="submit">Continue <span>→</span></button>
+        <p class="form-message" id="formMessage" role="status"></p>
+      </form>
+
+      <div class="auth-divider"><span>REMEMBERED YOUR PASSWORD?</span></div>
+      <a class="outline-btn" href="../login/">← Back to sign in</a>
+      <a class="back-home" href="../../index.html">← Back to website</a>
+    </div>
+  </section>
+</main>
+<script src="../auth.js"></script>
+<script>
+document.getElementById("resetForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  document.getElementById("formMessage").textContent =
+    "Password recovery is a preview. Email verification will be connected later.";
+});
+</script>
+</body>
+</html>

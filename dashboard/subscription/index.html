@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subscription Plans | Nova Business</title>
+  <link rel="stylesheet" href="../../assets/css/dashboard.css">
+  <link rel="stylesheet" href="../../assets/css/subscription.css">
+</head>
+<body>
+<div class="subscription-layout">
+  <aside class="sidebar" id="sidebar">
+    <a href="../" class="brand">Nova<span>.</span></a>
+    <div class="sidebar-label">WORKSPACE</div>
+    <nav class="side-nav">
+      <a href="../">Dashboard</a>
+      <a href="../customers/">Customers</a>
+      <a href="../crm/">CRM & Leads</a>
+      <a href="../invoices/">Invoices</a>
+      <a href="../inventory/">Inventory</a>
+      <a href="../marketing/">Marketing Studio</a>
+      <a href="../analytics/">Analytics</a>
+    </nav>
+    <div class="sidebar-label">TOOLS</div>
+    <nav class="side-nav">
+      <a href="../ai/">AI Assistant</a>
+      <a href="../website-builder/">Website Builder</a>
+    </nav>
+    <div class="sidebar-label">ACCOUNT</div>
+    <nav class="side-nav">
+      <a href="./" class="active">Subscription</a>
+      <a href="../settings/">Settings</a>
+      <a href="../../index.html">Back to Website</a>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="sidebar-user">
+        <div class="user-avatar">N</div>
+        <div><strong>Nova User</strong><small>Business Account</small></div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main subscription-main">
+    <header class="subscription-header">
+      <div class="header-left">
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+        <div>
+          <h1>Subscription Plans</h1>
+          <p>Choose the right plan to grow your business.</p>
+        </div>
+      </div>
+      <span class="billing-status">Flexible Plans</span>
+    </header>
+
+    <section class="current-plan">
+      <div class="current-icon">✦</div>
+      <div class="current-info">
+        <span class="eyebrow">YOUR CURRENT PLAN</span>
+        <h2 id="currentPlanName">Free Plan</h2>
+        <p id="currentPlanDescription">You're currently using the free demo plan.</p>
+      </div>
+      <span class="plan-badge" id="currentPlanBadge">ACTIVE</span>
+    </section>
+
+    <section class="pricing-section">
+      <div class="pricing-title">
+        <h2>Simple, transparent pricing</h2>
+        <p>Start free and upgrade when your business needs more.</p>
+      </div>
+
+      <div class="billing-toggle">
+        <button class="billing-option active" data-billing="monthly">Monthly</button>
+        <button class="billing-option" data-billing="yearly">Yearly <span>Save 15%</span></button>
+      </div>
+
+      <div class="pricing-grid">
+        <article class="pricing-card" data-plan="Free">
+          <div class="plan-top">
+            <span class="plan-name">Free</span>
+            <p>Explore the essentials.</p>
+            <div class="price"><strong>₹0</strong><span>/ forever</span></div>
+          </div>
+          <button class="plan-button outline" data-select="Free">Current Free Plan</button>
+          <div class="feature-heading">WHAT'S INCLUDED</div>
+          <ul>
+            <li>Basic business dashboard</li>
+            <li>Up to 25 customers</li>
+            <li>Basic CRM management</li>
+            <li>5 invoices per month</li>
+            <li>Basic inventory tools</li>
+            <li>Limited AI usage</li>
+            <li>Community support</li>
+          </ul>
+        </article>
+
+        <article class="pricing-card" data-plan="Starter">
+          <div class="plan-top">
+            <span class="plan-name">Starter</span>
+            <p>For small businesses getting started.</p>
+            <div class="price"><strong data-monthly="499" data-yearly="4990">₹499</strong><span class="price-period">/ month</span></div>
+          </div>
+          <button class="plan-button outline" data-select="Starter">Choose Starter</button>
+          <div class="feature-heading">EVERYTHING IN FREE, PLUS</div>
+          <ul>
+            <li>Up to 500 customers</li>
+            <li>Advanced CRM</li>
+            <li>Unlimited invoices*</li>
+            <li>AI marketing tools</li>
+            <li>Basic AI assistant access</li>
+            <li>Business reports</li>
+            <li>Email support</li>
+          </ul>
+        </article>
+
+        <article class="pricing-card popular" data-plan="Professional">
+          <div class="popular-label">MOST POPULAR</div>
+          <div class="plan-top">
+            <span class="plan-name">Professional</span>
+            <p>For growing teams and businesses.</p>
+            <div class="price"><strong data-monthly="999" data-yearly="10190">₹999</strong><span class="price-period">/ month</span></div>
+          </div>
+          <button class="plan-button filled" data-select="Professional">Choose Professional</button>
+          <div class="feature-heading">EVERYTHING IN STARTER, PLUS</div>
+          <ul>
+            <li>Up to 5,000 customers</li>
+            <li>AI chatbot tools</li>
+            <li>AI website builder access</li>
+            <li>Advanced analytics</li>
+            <li>Team workspace tools</li>
+            <li>Higher AI usage limits</li>
+            <li>Priority support</li>
+          </ul>
+        </article>
+
+        <article class="pricing-card" data-plan="Business">
+          <div class="plan-top">
+            <span class="plan-name">Business</span>
+            <p>For established businesses.</p>
+            <div class="price"><strong data-monthly="1999" data-yearly="20390">₹1,999</strong><span class="price-period">/ month</span></div>
+          </div>
+          <button class="plan-button outline" data-select="Business">Choose Business</button>
+          <div class="feature-heading">EVERYTHING IN PROFESSIONAL, PLUS</div>
+          <ul>
+            <li>Higher customer limits</li>
+            <li>Advanced AI features</li>
+            <li>Multiple team members</li>
+            <li>Extended AI usage limits</li>
+            <li>Advanced business reports</li>
+            <li>Priority assistance</li>
+            <li>Additional workspace controls</li>
+          </ul>
+        </article>
+      </div>
+      <p class="pricing-note">*Plan features, quotas and yearly billing are proposed demo values and may change before launch. Taxes, if applicable, are not included.</p>
+    </section>
+
+    <section class="comparison-card">
+      <h2>Compare plans</h2>
+      <p>See which features are planned for each subscription.</p>
+      <div class="comparison-scroll">
+        <table>
+          <thead>
+            <tr><th>Features</th><th>Free</th><th>Starter</th><th>Professional</th><th>Business</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Customer Management</td><td>25</td><td>500</td><td>5,000</td><td>Higher limits</td></tr>
+            <tr><td>CRM & Leads</td><td>Basic</td><td>Advanced</td><td>Advanced</td><td>Advanced</td></tr>
+            <tr><td>Invoice Maker</td><td>5 / month</td><td>Unlimited*</td><td>Unlimited*</td><td>Unlimited*</td></tr>
+            <tr><td>AI Assistant</td><td>Limited</td><td>Basic</td><td>Advanced</td><td>Extended</td></tr>
+            <tr><td>AI Website Builder</td><td>—</td><td>—</td><td>Included</td><td>Included</td></tr>
+            <tr><td>Analytics</td><td>Basic</td><td>Reports</td><td>Advanced</td><td>Advanced</td></tr>
+            <tr><td>Team Members</td><td>1</td><td>1</td><td>Planned</td><td>Multiple</td></tr>
+            <tr><td>Support</td><td>Community</td><td>Email</td><td>Priority</td><td>Priority</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="faq-card">
+      <h2>Frequently Asked Questions</h2>
+      <details><summary>Can I start with the Free plan?</summary><p>Yes. The Free plan is designed to let you explore the basic dashboard and business tools.</p></details>
+      <details><summary>Can I upgrade my plan later?</summary><p>Yes. Once subscription and payment integration is live, you will be able to upgrade your plan.</p></details>
+      <details><summary>Can I cancel my subscription?</summary><p>Subscription management and cancellation will be available after the billing system is integrated.</p></details>
+      <details><summary>Are AI features unlimited?</summary><p>No. AI usage will have plan-based limits to help manage provider costs and fair usage.</p></details>
+    </section>
+
+    <footer class="subscription-footer">Nova Business · Subscription plans are currently a frontend preview.</footer>
+  </main>
+</div>
+
+<div class="subscription-toast" id="subscriptionToast" role="status" aria-live="polite"></div>
+
+<script src="../../assets/js/subscription.js"></script>
+</body>
+</html>

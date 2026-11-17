@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>Invoice Maker | Nova Business</title>
+  <link rel="stylesheet" href="../../assets/css/dashboard.css">
+  <link rel="stylesheet" href="../../assets/css/invoices.css">
+</head>
+<body>
+
+<div class="invoice-layout">
+
+  <aside class="sidebar" id="sidebar">
+    <a href="../" class="brand">Nova<span>.</span></a>
+    <div class="workspace-label">WORKSPACE</div>
+
+    <nav class="side-nav">
+      <a href="../">▦ <span>Overview</span></a>
+      <a href="../ai/">✦ <span>AI Assistant</span></a>
+      <a href="../website-builder/">▣ <span>Website Builder</span></a>
+      <a href="../crm/">♧ <span>CRM & Leads</span></a>
+      <a href="../customers/">♙ <span>Customers</span></a>
+      <a href="./" class="active">▤ <span>Invoices</span></a>
+      <a href="../inventory/">▧ <span>Inventory</span></a>
+      <a href="../marketing/">✧ <span>AI Marketing</span></a>
+      <a href="../analytics/">▥ <span>Analytics</span></a>
+      <a href="../settings/">⚙ <span>Settings</span></a>
+      <a href="../subscription/">◇ <span>Subscription</span></a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <a href="https://t.me/Developeritik" target="_blank" rel="noopener">? Help & Support</a>
+      <a href="../../">← Back to Website</a>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
+      <div>
+        <div class="topbar-title">Invoice Maker</div>
+        <div class="topbar-subtitle">Create professional business invoices</div>
+      </div>
+      <div class="topbar-right">
+        <span class="status-pill">● Demo Mode</span>
+      </div>
+    </header>
+
+    <section class="page-content">
+      <div class="page-heading">
+        <div>
+          <h1>Create Invoice</h1>
+          <p>Fill in the details and generate your invoice.</p>
+        </div>
+        <button class="primary-btn" id="printBtn">↗ Print / Save PDF</button>
+      </div>
+
+      <div class="invoice-grid">
+
+        <section class="editor-card">
+          <div class="card-heading">
+            <div>
+              <h2>Invoice Details</h2>
+              <p>Enter your business and customer information.</p>
+            </div>
+            <span class="step-number">01</span>
+          </div>
+
+          <div class="form-section">
+            <h3>Business Information</h3>
+            <div class="form-grid">
+              <label class="full">Business Name
+                <input id="businessName" type="text" placeholder="Your Business Name">
+              </label>
+              <label>Business Email
+                <input id="businessEmail" type="email" placeholder="business@example.com">
+              </label>
+              <label>Phone Number
+                <input id="businessPhone" type="tel" placeholder="+91 00000 00000">
+              </label>
+              <label class="full">Business Address
+                <textarea id="businessAddress" rows="2" placeholder="Your business address"></textarea>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>Customer Information</h3>
+            <div class="form-grid">
+              <label>Customer Name
+                <input id="customerName" type="text" placeholder="Customer name">
+              </label>
+              <label>Customer Email
+                <input id="customerEmail" type="email" placeholder="customer@example.com">
+              </label>
+              <label class="full">Customer Address
+                <textarea id="customerAddress" rows="2" placeholder="Customer address"></textarea>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>Invoice Information</h3>
+            <div class="form-grid">
+              <label>Invoice Number
+                <input id="invoiceNumber" type="text">
+              </label>
+              <label>Invoice Date
+                <input id="invoiceDate" type="date">
+              </label>
+              <label>Due Date
+                <input id="dueDate" type="date">
+              </label>
+              <label>Currency
+                <select id="currency">
+                  <option value="INR">INR (₹)</option>
+                  <option value="USD">USD ($)</option>
+                  <option value="EUR">EUR (€)</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <div class="items-heading">
+              <h3>Products / Services</h3>
+              <button type="button" class="small-btn" id="addItemBtn">+ Add Item</button>
+            </div>
+
+            <div class="items-wrap">
+              <table class="items-table">
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th>Qty</th>
+                    <th>Rate</th>
+                    <th>Amount</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="itemsBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3>Tax & Notes</h3>
+            <div class="form-grid">
+              <label>Tax / GST (%)
+                <input id="taxRate" type="number" min="0" max="100" step="0.01" value="18">
+              </label>
+              <label>Discount (₹)
+                <input id="discount" type="number" min="0" step="0.01" value="0">
+              </label>
+              <label class="full">Notes / Payment Instructions
+                <textarea id="notes" rows="3" placeholder="Thank you for your business!"></textarea>
+              </label>
+            </div>
+          </div>
+
+          <div class="editor-actions">
+            <button type="button" class="secondary-btn" id="resetBtn">Reset Form</button>
+            <button type="button" class="primary-btn" id="printBtnBottom">Print / Save PDF</button>
+          </div>
+        </section>
+
+        <section class="preview-card">
+          <div class="preview-top">
+            <div>
+              <h2>Live Preview</h2>
+              <p>Your invoice updates automatically.</p>
+            </div>
+            <span class="preview-label">PREVIEW</span>
+          </div>
+
+          <div class="paper" id="invoicePaper">
+            <div class="paper-header">
+              <div>
+                <div class="paper-brand" id="previewBusiness">Your Business</div>
+                <div class="paper-business-details" id="previewBusinessDetails">Business email and address</div>
+              </div>
+              <div class="invoice-word">INVOICE</div>
+            </div>
+
+            <div class="paper-meta">
+              <div>
+                <span>INVOICE NUMBER</span>
+                <strong id="previewNumber">NB-0001</strong>
+              </div>
+              <div>
+                <span>INVOICE DATE</span>
+                <strong id="previewDate">—</strong>
+              </div>
+              <div>
+                <span>DUE DATE</span>
+                <strong id="previewDue">—</strong>
+              </div>
+            </div>
+
+            <div class="bill-to">
+              <span>BILL TO</span>
+              <strong id="previewCustomer">Customer Name</strong>
+              <p id="previewCustomerDetails">Customer address and email</p>
+            </div>
+
+            <table class="preview-table">
+              <thead>
+                <tr>
+                  <th>DESCRIPTION</th>
+                  <th>QTY</th>
+                  <th>RATE</th>
+                  <th>AMOUNT</th>
+                </tr>
+              </thead>
+              <tbody id="previewItems">
+                <tr><td>Sample item</td><td>1</td><td>₹0.00</td><td>₹0.00</td></tr>
+              </tbody>
+            </table>
+
+            <div class="totals">
+              <div><span>Subtotal</span><strong id="previewSubtotal">₹0.00</strong></div>
+              <div><span>Discount</span><strong id="previewDiscount">₹0.00</strong></div>
+              <div><span>Tax</span><strong id="previewTax">₹0.00</strong></div>
+              <div class="grand-total"><span>Total</span><strong id="previewTotal">₹0.00</strong></div>
+            </div>
+
+            <div class="paper-notes">
+              <strong>Notes</strong>
+              <p id="previewNotes">Thank you for your business!</p>
+            </div>
+
+            <div class="paper-footer">Thank you for choosing us.</div>
+          </div>
+          <p class="preview-hint">Tip: Use the Print / Save PDF button and select “Save as PDF” in your browser's print options.</p>
+        </section>
+
+      </div>
+    </section>
+  </main>
+</div>
+
+<script src="../../assets/js/dashboard.js"></script>
+<script src="../../assets/js/invoices.js"></script>
+</body>
+</html>
