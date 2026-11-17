@@ -105,6 +105,104 @@
     renderHistory();
   }
 
+
+  function renderInline(container, text) {
+    const pattern = /(\*\*[^*]+\*\*|__[^_]+__|`[^`]+`|\*[^*\n]+\*|_[^_\n]+_)/g;
+    let last = 0;
+    let match;
+
+    while ((match = pattern.exec(text)) !== null) {
+      container.append(document.createTextNode(text.slice(last, match.index)));
+
+      const token = match[0];
+      let element;
+
+      if (token.startsWith('**') || token.startsWith('__')) {
+        element = document.createElement('strong');
+        element.textContent = token.slice(2, -2);
+      } else if (token.startsWith('`')) {
+        element = document.createElement('code');
+        element.textContent = token.slice(1, -1);
+      } else {
+        element = document.createElement('em');
+        element.textContent = token.slice(1, -1);
+      }
+
+      container.append(element);
+      last = pattern.lastIndex;
+    }
+
+    container.append(document.createTextNode(text.slice(last)));
+  }
+
+  function renderMarkdown(container, source) {
+    const lines = String(source || '').replace(/\r\n?/g, '\n').split('\n');
+    let list = null;
+    let listType = '';
+    let codeBlock = null;
+
+    function closeList() {
+      list = null;
+      listType = '';
+    }
+
+    lines.forEach(line => {
+      if (line.trim().startsWith('```')) {
+        closeList();
+
+        if (codeBlock) {
+          container.append(codeBlock);
+          codeBlock = null;
+        } else {
+          codeBlock = document.createElement('pre');
+          const code = document.createElement('code');
+          codeBlock.append(code);
+          codeBlock._code = code;
+        }
+        return;
+      }
+
+      if (codeBlock) {
+        codeBlock._code.append(document.createTextNode(line + '\n'));
+        return;
+      }
+
+      if (!line.trim()) {
+        closeList();
+        return;
+      }
+
+      const bullet = line.match(/^\s*[*+-]\s+(.+)$/);
+      const numbered = line.match(/^\s*\d+[.)]\s+(.+)$/);
+
+      if (bullet || numbered) {
+        const type = bullet ? 'ul' : 'ol';
+
+        if (!list || listType !== type) {
+          closeList();
+          list = document.createElement(type);
+          listType = type;
+          container.append(list);
+        }
+
+        const item = document.createElement('li');
+        renderInline(item, (bullet || numbered)[1]);
+        list.append(item);
+        return;
+      }
+
+      closeList();
+
+      const heading = line.match(/^#{1,3}\s+(.+)$/);
+      const paragraph = document.createElement(heading ? 'h3' : 'p');
+
+      renderInline(paragraph, heading ? heading[1] : line);
+      container.append(paragraph);
+    });
+
+    if (codeBlock) container.append(codeBlock);
+  }
+
   function messageElement(role, text) {
     const row = document.createElement('div');
     row.className = 'message-row ' + role;
@@ -122,7 +220,7 @@
 
     const body = document.createElement('div');
     body.className = 'message-text';
-    body.textContent = text;
+    renderMarkdown(body, text);
 
     content.append(author, body);
     row.append(avatar, content);
