@@ -366,59 +366,98 @@
     message.textContent = '✦ Nova AI is creating your website...';
 
     try {
-      const instruction = `Create website content for a ${category} business.
-Business description: ${prompt}
+      const instruction = [
+        'Create website content for a ' + category + ' business.',
+        'Business description: ' + prompt,
+        '',
+        'Return ONLY valid JSON. No Markdown or code fences.',
+        'Use exactly these keys: title, tagline, description, cta, about, services.',
+        'Services must be an array of objects with title and description.',
+        'Escape double quotes inside strings.',
+        'Do not put literal line breaks inside JSON string values.',
+        'Do not use trailing commas. Return valid JSON only.'
+      ].join('\n');
 
-Return ONLY valid JSON. Do not use Markdown or code fences.
-Use exactly this structure:
-{
-  "title": "Business name",
-  "tagline": "Short attractive hero heading",
-  "description": "Short hero description",
-  "cta": "Call to action button text",
-  "about": "About the business paragraph",
-  "services": [
-    {"title": "Service one", "description": "Short description"},
-    {"title": "Service two", "description": "Short description"},
-    {"title": "Service three", "description": "Short description"}
-  ]
-}
-All values must be plain text.`;
+      async function requestAI(content) {
+        const response = await fetch(BUILDER_API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            messages: [{ role: 'user', content: content }]
+          })
+        });
 
-      const response = await fetch(BUILDER_API_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          messages: [{ role: 'user', content: instruction }]
-        })
-      });
+        let result;
+        try {
+          result = await response.json();
+        } catch {
+          throw new Error('Invalid response from AI server.');
+        }
 
-      let result;
+        if (!response.ok) {
+          throw new Error(result.error || 'AI server error (' + response.status + ')');
+        }
+
+        if (!result.reply || typeof result.reply !== 'string') {
+          throw new Error('AI did not return a valid reply.');
+        }
+
+        return result.reply;
+      }
+
+      function parseWebsiteReply(reply) {
+        const fence = String.fromCharCode(96).repeat(3);
+        let jsonText = reply.trim();
+
+        if (jsonText.startsWith(fence)) {
+          jsonText = jsonText.slice(fence.length);
+          if (jsonText.toLowerCase().startsWith('json')) {
+            jsonText = jsonText.slice(4);
+          }
+          const closingFence = jsonText.lastIndexOf(fence);
+          if (closingFence >= 0) jsonText = jsonText.slice(0, closingFence);
+        }
+
+        const firstBrace = jsonText.indexOf('{');
+        const lastBrace = jsonText.lastIndexOf('}');
+
+        if (firstBrace < 0 || lastBrace <= firstBrace) {
+          throw new Error('AI response mein JSON nahi mila.');
+        }
+
+        const data = JSON.parse(jsonText.slice(firstBrace, lastBrace + 1));
+
+        if (!data || typeof data !== 'object' || Array.isArray(data)) {
+          throw new Error('AI returned invalid website data.');
+        }
+
+        return data;
+      }
+
+      let aiReply = await requestAI(instruction);
+      let websiteData;
+
       try {
-        result = await response.json();
+        websiteData = parseWebsiteReply(aiReply);
       } catch {
-        throw new Error('Invalid response from AI server.');
+        message.textContent = '✦ Fixing AI response format...';
+
+        const repairPrompt = [
+          'Convert this response into valid JSON only.',
+          'No Markdown or code fences.',
+          'Preserve the business content.',
+          'Required keys: title, tagline, description, cta, about, services.',
+          'Services must be an array of objects with title and description.',
+          'Escape quotes and do not use trailing commas.',
+          '',
+          'Response to repair:',
+          aiReply
+        ].join('\n');
+
+        const repairedReply = await requestAI(repairPrompt);
+        websiteData = parseWebsiteReply(repairedReply);
       }
 
-      if (!response.ok) {
-        throw new Error(result.error || `AI server error (${response.status})`);
-      }
-
-      if (!result.reply || typeof result.reply !== 'string') {
-        throw new Error('AI did not return a valid reply.');
-      }
-
-      let jsonText = result.reply.trim()
-        .replace(/^```(?:json)?\s*/i, '')
-        .replace(/\s*```$/, '');
-
-      const firstBrace = jsonText.indexOf('{');
-      const lastBrace = jsonText.lastIndexOf('}');
-      if (firstBrace < 0 || lastBrace <= firstBrace) {
-        throw new Error('AI response was not valid JSON. Please try again.');
-      }
-
-      const websiteData = JSON.parse(jsonText.slice(firstBrace, lastBrace + 1));
       renderGeneratedWebsite(websiteData);
       message.textContent = '';
     } catch (error) {
