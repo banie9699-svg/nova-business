@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f7f9fc">
+<title>Website Builder | Nova Business</title>
+<link rel="stylesheet" href="../../assets/css/dashboard.css">
+<link rel="stylesheet" href="../../assets/css/website-builder.css">
+</head>
+<body>
+
+<div class="overlay" id="overlay"></div>
+
+<aside class="sidebar" id="sidebar">
+  <a href="../../" class="brand">Nova<span>.</span></a>
+  <div class="workspace">WORKSPACE</div>
+
+  <nav class="side-nav">
+    <a href="../">▦ &nbsp; Overview</a>
+    <a href="../ai/">✦ &nbsp; AI Assistant</a>
+    <a href="./" class="active">▣ &nbsp; Website Builder</a>
+    <a href="../crm/">♧ &nbsp; CRM & Leads</a>
+    <a href="../customers/">♙ &nbsp; Customers</a>
+    <a href="../invoices/">▤ &nbsp; Invoices</a>
+    <a href="../inventory/">▣ &nbsp; Inventory</a>
+    <a href="../marketing/">✧ &nbsp; AI Marketing</a>
+    <a href="../analytics/">▥ &nbsp; Analytics</a>
+    <a href="../settings/">⚙ &nbsp; Settings</a>
+    <a href="../subscription/">◇ &nbsp; Subscription</a>
+  </nav>
+
+  <div class="sidebar-bottom">
+    <a href="https://t.me/Developeritik" target="_blank">✉ &nbsp; Help & Support</a>
+    <a href="../../">↗ &nbsp; Back to Website</a>
+  </div>
+</aside>
+
+<main class="main builder-main">
+
+  <header class="builder-topbar">
+    <div class="builder-brand-area">
+      <button class="menu-btn" id="menuBtn">☰</button>
+      <div>
+        <div class="builder-title">Website Studio</div>
+        <div class="builder-subtitle">Create your business website</div>
+      </div>
+    </div>
+
+    <div class="builder-top-actions">
+      <span class="save-status" id="saveStatus">● All changes saved</span>
+      <button class="editor-btn" id="undoBtn" title="Undo">↶</button>
+      <button class="editor-btn" id="redoBtn" title="Redo">↷</button>
+      <button class="editor-btn" id="previewBtn">Preview</button>
+      <button class="editor-btn" id="exitPreviewBtn" hidden>Exit Preview</button>
+      <button class="publish-btn" id="publishBtn">Publish ↗</button>
+    </div>
+  </header>
+
+  <section class="builder-content">
+
+    <div class="builder-heading">
+      <div>
+        <span class="builder-eyebrow">WEBSITE BUILDER</span>
+        <h1>Build your website</h1>
+        <p>Design, customize and publish your professional business website.</p>
+      </div>
+      <div class="project-info">
+        <span class="project-dot"></span>
+        <div>
+          <strong>My Business Website</strong>
+          <small>Draft project</small>
+        </div>
+      </div>
+    </div>
+
+    <section class="creation-options">
+      <div class="creation-copy">
+        <span class="ai-label">✦ NOVA AI WEBSITE GENERATOR</span>
+        <h2>Turn your idea into a website.</h2>
+        <p>Describe your business and let AI create your website design.</p>
+        <button class="ai-generate-btn" id="openAiBtn">✦ Generate with AI</button>
+      </div>
+      <div class="creation-visual">
+        <div class="visual-window">
+          <div class="visual-window-bar"><i></i><i></i><i></i></div>
+          <div class="visual-window-content">
+            <span>NOVA BUSINESS</span>
+            <strong>Your next big idea starts here.</strong>
+            <div class="visual-lines"></div>
+            <div class="visual-button"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="editor-heading">
+      <div>
+        <h2>Website Editor</h2>
+        <p>Customize every section of your website.</p>
+      </div>
+      <button class="template-btn" id="templatesBtn">▦ Browse Templates</button>
+    </div>
+
+    <section class="editor-shell">
+
+      <div class="elements-panel">
+        <div class="panel-tabs">
+          <button class="panel-tab active" data-panel="elements">Elements</button>
+          <button class="panel-tab" data-panel="layers">Layers</button>
+        </div>
+
+        <div class="element-search">
+          <input type="search" placeholder="Search elements..." id="elementSearch">
+        </div>
+
+        <div id="elementsPanel">
+          <div class="element-category">BASIC ELEMENTS</div>
+          <div class="element-grid">
+            <button class="element-item" draggable="true" data-element="Heading"><span>H</span>Heading</button>
+            <button class="element-item" draggable="true" data-element="Text"><span>¶</span>Text</button>
+            <button class="element-item" draggable="true" data-element="Image"><span>▧</span>Image</button>
+            <button class="element-item" draggable="true" data-element="Button"><span>▰</span>Button</button>
+            <button class="element-item" draggable="true" data-element="Video"><span>▷</span>Video</button>
+            <button class="element-item" draggable="true" data-element="Divider"><span>━</span>Divider</button>
+          </div>
+
+          <div class="element-category">BUSINESS ELEMENTS</div>
+          <div class="element-grid">
+            <button class="element-item" draggable="true" data-element="Products"><span>▦</span>Products</button>
+            <button class="element-item" draggable="true" data-element="Services"><span>◇</span>Services</button>
+            <button class="element-item" draggable="true" data-element="Contact Form"><span>✉</span>Contact Form</button>
+            <button class="element-item" draggable="true" data-element="Testimonials"><span>☆</span>Reviews</button>
+            <button class="element-item" draggable="true" data-element="Gallery"><span>▤</span>Gallery</button>
+            <button class="element-item" draggable="true" data-element="Map"><span>⌖</span>Map</button>
+          </div>
+
+          <div class="element-category">LAYOUT</div>
+          <div class="element-grid">
+            <button class="element-item" draggable="true" data-element="Section"><span>▣</span>Section</button>
+            <button class="element-item" draggable="true" data-element="Columns"><span>▥</span>Columns</button>
+            <button class="element-item" draggable="true" data-element="Navbar"><span>☰</span>Navbar</button>
+            <button class="element-item" draggable="true" data-element="Footer"><span>▤</span>Footer</button>
+          </div>
+        </div>
+
+        <div id="layersPanel" hidden>
+          <div class="element-category">PAGE LAYERS</div>
+          <div id="layerList">
+            <div class="layer-item">☰ Navigation</div>
+            <div class="layer-item">▣ Hero Section</div>
+            <div class="layer-item">▦ Services</div>
+            <div class="layer-item">▤ Footer</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="canvas-panel">
+        <div class="canvas-toolbar">
+          <div class="page-selector">
+            <span>Page</span>
+            <select id="pageSelector">
+              <option>Home</option>
+              <option>About</option>
+              <option>Services</option>
+              <option>Contact</option>
+            </select>
+          </div>
+          <div class="device-controls">
+            <button class="device-btn active" data-device="desktop" title="Desktop">▣</button>
+            <button class="device-btn" data-device="tablet" title="Tablet">▤</button>
+            <button class="device-btn" data-device="mobile" title="Mobile">▯</button>
+          </div>
+          <span class="zoom-label">100%</span>
+        </div>
+
+        <div class="canvas-viewport">
+          <div class="website-canvas" id="websiteCanvas">
+            <header class="preview-navbar">
+              <strong class="preview-logo">MY BUSINESS<span>.</span></strong>
+              <nav>
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+              </nav>
+              <button>Get Started</button>
+            </header>
+
+            <section class="preview-hero" id="home">
+              <div class="hero-content">
+                <span class="hero-tag">WELCOME TO OUR BUSINESS</span>
+                <h1>Build Something<br><span>Extraordinary.</span></h1>
+                <p>We help businesses grow with creative ideas, trusted services and modern solutions.</p>
+                <button>Explore Our Services ↗</button>
+              </div>
+              <div class="hero-art">
+                <div class="art-card art-card-one">✦<strong>Innovation</strong></div>
+                <div class="art-card art-card-two">↗<strong>Growth</strong></div>
+                <div class="art-circle"></div>
+              </div>
+            </section>
+
+            <section class="preview-services" id="services">
+              <span>WHAT WE DO</span>
+              <h2>Our Services</h2>
+              <div class="service-cards">
+                <article><i>✦</i><h3>Creative Solutions</h3><p>Ideas designed for your business growth.</p></article>
+                <article><i>◇</i><h3>Professional Support</h3><p>Reliable services for every customer.</p></article>
+                <article><i>↗</i><h3>Business Growth</h3><p>Helping your business move forward.</p></article>
+              </div>
+            </section>
+
+            <div class="canvas-drop-hint" id="dropHint">＋ Drop elements here to add to your website</div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="properties-panel">
+        <div class="properties-heading">
+          <div><strong>Properties</strong><small>Customize selected element</small></div>
+          <span>⚙</span>
+        </div>
+
+        <div class="property-empty" id="propertyEmpty">
+          <span>◇</span>
+          <strong>No element selected</strong>
+          <p>Select an element on the canvas to edit its properties.</p>
+        </div>
+
+        <div id="propertyEditor" hidden>
+          <div class="property-group">
+            <label>Element Name</label>
+            <input type="text" id="elementName" value="Heading">
+          </div>
+          <div class="property-group">
+            <label>Text Content</label>
+            <textarea id="elementText" rows="3"></textarea>
+          </div>
+          <div class="property-group">
+            <label>Text Color</label>
+            <input type="color" id="textColor" value="#17243b">
+          </div>
+          <div class="property-group">
+            <label>Background Color</label>
+            <input type="color" id="backgroundColor" value="#ffffff">
+          </div>
+          <div class="property-group">
+            <label>Font Size</label>
+            <input type="number" id="fontSize" value="24" min="8" max="100">
+          </div>
+          <div class="property-group">
+            <label>Border Radius</label>
+            <input type="range" id="borderRadius" min="0" max="40" value="8">
+          </div>
+          <button class="delete-element-btn" id="deleteElementBtn">Delete Element</button>
+        </div>
+
+        <div class="property-footer">
+          <span>✦</span> Select an element to unlock editing tools.
+        </div>
+      </aside>
+
+    </section>
+
+    <section class="builder-bottom-grid">
+      <article class="bottom-feature">
+        <span>▦</span>
+        <div><strong>Ready-made Templates</strong><p>Start with a professionally designed business template.</p></div>
+        <button id="bottomTemplatesBtn">Explore →</button>
+      </article>
+      <article class="bottom-feature">
+        <span>⌖</span>
+        <div><strong>SEO & Domain Settings</strong><p>Prepare your website for search engines and custom domains.</p></div>
+        <button id="seoBtn">Configure →</button>
+      </article>
+    </section>
+
+    <p class="builder-disclaimer">Website Studio preview. AI generation, live editing and publishing will be connected in upcoming development steps.</p>
+
+  </section>
+</main>
+
+<div class="modal-backdrop" id="aiModal">
+  <div class="builder-modal">
+    <button class="modal-close" data-close="aiModal">×</button>
+    <span class="ai-label">✦ NOVA AI GENERATOR</span>
+    <h2>What website do you want to create?</h2>
+    <p>Describe your business and the website you imagine.</p>
+    <textarea id="aiPrompt" placeholder="Example: Create a modern website for my clothing business with products, pricing and contact information..."></textarea>
+    <label>Website category</label>
+    <select id="websiteCategory">
+      <option>Business</option>
+      <option>E-commerce</option>
+      <option>Portfolio</option>
+      <option>Agency</option>
+      <option>Restaurant</option>
+      <option>Education</option>
+    </select>
+    <button class="ai-generate-btn" id="generateWebsiteBtn">✦ Generate Website</button>
+    <p class="modal-message" id="aiMessage"></p>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="templatesModal">
+  <div class="builder-modal templates-modal">
+    <button class="modal-close" data-close="templatesModal">×</button>
+    <h2>Choose a Website Template</h2>
+    <p>Start your project with a ready-made design.</p>
+    <div class="template-grid">
+      <button class="template-card" data-template="Modern Business"><span>▣</span><strong>Modern Business</strong><small>Professional company website</small></button>
+      <button class="template-card" data-template="Creative Agency"><span>✦</span><strong>Creative Agency</strong><small>Portfolio and agency website</small></button>
+      <button class="template-card" data-template="Online Store"><span>▦</span><strong>Online Store</strong><small>Product and shopping layout</small></button>
+      <button class="template-card" data-template="Personal Portfolio"><span>◇</span><strong>Portfolio</strong><small>Showcase your work</small></button>
+    </div>
+    <p class="modal-message" id="templateMessage"></p>
+  </div>
+</div>
+
+<div class="toast" id="builderToast"></div>
+
+<script src="../../assets/js/dashboard.js"></script>
+<script src="../../assets/js/website-builder.js?v=2"></script>
+</body>
+</html>
